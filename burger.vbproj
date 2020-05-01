@@ -233,7 +233,6 @@
     <Content Include="Content\images\HAM2.png" />
     <Content Include="Content\images\HAM3.png" />
     <Content Include="Content\images\hamOut.svg" />
-    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\menuham.png" />
     <Content Include="Content\images\money.png" />
     <Content Include="Content\images\papas.png" />
@@ -282,6 +281,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Shared\_HomeLayout.vbhtml" />
+    <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Resumen\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
@@ -301,7 +302,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.vbhtml" />
-    <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
   </ItemGroup>

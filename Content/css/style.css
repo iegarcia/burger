@@ -16,12 +16,16 @@
 }
 
 .box img {
-    width: 160px;
-    border-radius: 50%;
+     width: 160px;
+     border-radius: 50%;
+    }
+
+.home-description {
+    font-size: medium;
 }
 
-table {
-    width: 94%;
+.t-prod {
+    width: 100%;
     text-align: center;
     font-size: larger;
 }
@@ -44,38 +48,36 @@ table {
 }
 
 .b-iCon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
-.tabla {
-    margin: auto;
+.content {
+    display:flex;
+    justify-content:center;
+}
+
+.resumen {
     background-color: black;
     border: 10px solid black;
-    padding: 10px;
     border-spacing: 10px;
     width: 85%;
-    border-radius: 55px;
     opacity: 0.85;
 }
 
-th {
-    color: white;
-    font-size: 40px;
-    margin: auto;
-    font-family: 'Sen', sans-serif;
-    background-color: black;
-    text-align: center;
-    border: 2px;
-    border-radius: 15px;
+th, td {
+    padding: 10px;
 }
 
-td {
+.tbody, .thead {
     color: white;
     font-size: 20px;
-    margin: auto;
     font-family: 'Sen', sans-serif;
-    background-color: black;
     text-align: center;
-    border-radius: 55px;
 }
+
+.thead {
+    background-color: tomato;
+    border: 2px;
+}
+
