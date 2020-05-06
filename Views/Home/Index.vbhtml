@@ -8,7 +8,8 @@ End Code
     <p class="home-description">
         Lorem no molestie et lorem est et amet rebum et ipsum delenit justo diam ipsum lorem enim vero sea takimata invidunt diam et vel sed kasd dolore at dolore imperdiet elitr diam dolor stet tempor dolore illum vel nonumy vero sit sadipscing labore dolores sadipscing facilisis gubergren aliquip aliquam illum
         </p>
-    <h3> A continuacion elija un producto</h3>
+    <hr />
+    <h3 class="prod-sell">A continuacion elija un producto</h3>
 </div>
 <br />
 <br />
@@ -34,5 +35,4 @@ End Code
     </tr>
 </table>
 <br />
-<p>Total: <input type="text" /></p>
-<a href="/resumen/index" class="btn btn-primary">Pedir</a>
+<a href="/Resumen" class="btn btn-primary">Pedir</a>

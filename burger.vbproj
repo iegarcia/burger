@@ -185,6 +185,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.vb" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.vb" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.vb" />
+    <Compile Include="Controllers\LoginController.vb" />
     <Compile Include="Controllers\ResumenController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -283,7 +284,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Shared\_HomeLayout.vbhtml" />
     <Content Include="Views\Home\Index.vbhtml" />
-    <Content Include="Views\Resumen\Index.vbhtml" />
+    <Content Include="Views\Resumen\Resumen.vbhtml" />
+    <Content Include="Views\Login\Login.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

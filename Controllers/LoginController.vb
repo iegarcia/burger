@@ -1,12 +1,12 @@
 ﻿Imports System.Web.Mvc
 
 Namespace Controllers
-    Public Class ResumenController
+    Public Class LoginController
         Inherits Controller
 
-        ' GET: Resumen
+        ' GET: Login
         Function Index() As ActionResult
-            Return View("Resumen")
+            Return View("Login")
         End Function
     End Class
 End Namespace
