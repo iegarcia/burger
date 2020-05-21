@@ -1,0 +1,249 @@
+﻿/* General */
+* {
+    box-sizing: border-box;
+    margin: 0, auto;
+    padding: 0;
+}
+
+body {
+    /*Estoy pensando que color de fondo poner aca...*/
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.box {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/* Index */
+.home-title {
+    text-decoration: underline;
+}
+
+.home-description {
+    font-size: small;
+}
+
+.home-title, .home-description, .prod-sell {
+    text-align: center;
+}
+
+.prod-sell {
+    background-color: lightgray;
+}
+
+.box img {
+    width: 160px;
+    border-radius: 50%;
+}
+
+.t-prod {
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+}
+
+.container p {
+    font-size: 23px;
+}
+
+.container button {
+    float: right;
+    font-size: 20px;
+}
+/* Resumen */
+
+.titulo {
+    font-size: 30px;
+    margin: auto;
+    font-family: 'Sen', sans-serif;
+    text-align: center;
+}
+
+.b-iCon {
+    width: 30px;
+    height: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.resumen {
+    background-color: black;
+    border: 10px solid black;
+    border-spacing: 10px;
+    width: 85%;
+    opacity: 0.85;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.tbody, .thead {
+    color: white;
+    font-size: 20px;
+    font-family: 'Sen', sans-serif;
+    text-align: center;
+}
+
+.thead {
+    background-color: tomato;
+    border: 2px;
+}
+
+/* Login */
+.bg-login {
+    background-image: url("https://images.unsplash.com/photo-1556910602-38f53e68e15d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1525&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #f39c12;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 140px;
+    width: 140px;
+    border-radius: 40%;
+}
+
+.form_container {
+    margin-top: 100px;
+}
+
+.login_btn {
+    width: 100%;
+    background: #c0392b !important;
+    color: white !important;
+}
+
+    .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+
+.login_container {
+    padding: 0 2rem;
+}
+
+.input-group-text {
+    background: #c0392b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.custom-checkbox
+.custom-control-input:checked ~
+.custom-control-label::before {
+    background-color: #c0392b !important;
+}
+
+/* Carrito */
+.bloc_left_price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.category_block li:hover {
+    background-color: #007bff;
+}
+
+    .category_block li:hover a {
+        color: #ffffff;
+    }
+
+.category_block li a {
+    color: #343a40;
+}
+
+.add_to_cart_block .price {
+    color: #c01508;
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+.add_to_cart_block .price_discounted {
+    color: #343a40;
+    text-align: center;
+    text-decoration: line-through;
+    font-size: 140%;
+}
+
+.product_rassurance {
+    padding: 10px;
+    margin-top: 15px;
+    background: #ffffff;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+}
+
+    .product_rassurance .list-inline {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+        .product_rassurance .list-inline li:hover {
+            color: #343a40;
+        }
+
+.reviews_product .fa-star {
+    color: gold;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+footer {
+    background: #343a40;
+    padding: 40px;
+}
+
+    footer a {
+        color: #f8f9fa !important
+    }
