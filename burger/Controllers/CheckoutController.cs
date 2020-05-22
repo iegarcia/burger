@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace burger.Controllers
 {
-    public class ResumenController : Controller
+    public class CheckoutController : Controller
     {
         // GET: Resumen
         public ActionResult Index()
         {
-            return View();
+            return View("Checkout");
         }
     }
 }

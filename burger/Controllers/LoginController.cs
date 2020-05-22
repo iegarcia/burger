@@ -1,9 +1,8 @@
-﻿using burger.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
+using burger.Models;
+using System.CodeDom.Compiler;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace burger.Controllers
 {
@@ -12,12 +11,19 @@ namespace burger.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            return View();
+            return View("Login");
         }
 
         public ActionResult Login(LoginModel modelo)
         {
-            return View();
+            if (modelo.NombreUsuario.Equals("pepe") && modelo.Password.Equals("pepe"))
+            {
+                return Redirect("/Checkout");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

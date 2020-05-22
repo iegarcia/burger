@@ -11,7 +11,7 @@ namespace burger.Controllers
         // GET: Carrito
         public ActionResult Index()
         {
-            return View();
+            return View("Carrito");
         }
     }
 }

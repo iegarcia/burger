@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
@@ -9,38 +9,49 @@
         <div class="user_card">
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container">
-                    <img src="https://image.flaticon.com/icons/svg/198/198416.svg" class="brand_logo" alt="Logo">
+                    <i class="fas fa-user fa-8x brand_logo"></i>
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">
-                <form method="post" action="Login">
+                <form method="post" action="Registro">
                     <div class="input-group mb-3">
                         <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
                         </div>
-                        <input type="text" name="NombreUsuario" class="form-control input_user" value="" placeholder="Usuario">
+                        <input type="text" name="Nombre" class="form-control input_user" placeholder="Usuario">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fas fa-at"></i>
+                            </span>
+                        </div>
+                        <input type="email" name="Email" class="form-control input_user" placeholder="Email">
                     </div>
                     <div class="input-group mb-2">
                         <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text">
+                                <i class="fas fa-key"></i>
+                            </span>
                         </div>
-                        <input type="password" name="Password" class="form-control input_pass" value="" placeholder="Clave">
+                        <input type="password" name="Password" class="form-control input_pass" placeholder="Clave">
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline">Remember me</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mt-3 login_container">
-                        <button type="submit" name="button" class="btn login_btn">Login</button>
+                        <button type="submit" name="button" class="btn login_btn">Registrarse</button>
                     </div>
                 </form>
             </div>
 
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+                    Ya eres miembro? <a href="/Login" class="ml-2">Login</a>
                 </div>
             </div>
         </div>
