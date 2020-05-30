@@ -1,0 +1,56 @@
+﻿@model burger.Models.CarritoModel
+@{ ViewBag.Title = "Carrito";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col" class="text-center">Cantidad</th>
+                        <th scope="col" class="text-center">Precio por Unidad</th>
+                        <th scope="col" class="text-right">Precio</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var producto in Model.ListaProductos)
+                    {
+                        <tr>
+                            <td>@producto.Id</td>
+                            <td>@producto.Nombre</td>
+                            <td><input class="form-control" type="text" value="@producto.Cantidad" /></td>
+                            <td class="text-center">@producto.Precio $</td>
+                            <td class="text-right">@producto.Total $</td>
+                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                        </tr>
+                    }
+
+                    <tr class="alert-info">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><strong>Total</strong></td>
+                        <td class="text-right"><strong>@Model.Total</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col mb-2">
+        <div class="row">
+            <div class="col-sm-12  col-md-6">
+                <a href="/Home/Index" class="btn btn-block btn-light">Continue Shopping</a>
+            </div>
+            <div class="col-sm-12 col-md-6 text-right">
+                <a href="/Checkout" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>

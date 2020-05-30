@@ -1,0 +1,34 @@
+﻿@model burger.Models.UserModel
+
+@{
+    ViewBag.Title = "ListadoUsuarios";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div>
+    <h2>Listar Usuarios</h2>
+    <h4>Hola @Model.UsuarioLogueado !</h4>
+    <p>
+        En esta seccion se muestran los usuarios registrados. Si estas aca significa que sos un
+        <strong>usuario administrador</strong>
+    </p>
+</div>
+<hr />
+<table class="customers">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Email</th>
+    </tr>
+   @foreach (var usuario in Model.ListaUsuarios)
+   {
+       <tr>
+           <td>@usuario.Id</td>
+           <td>@usuario.Nombre</td>
+           <td>@usuario.Usuario</td>
+           <td>@usuario.Email</td>
+       </tr>
+   }
+</table>
+
