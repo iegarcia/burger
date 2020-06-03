@@ -1,8 +1,6 @@
 ﻿using burger.Entidades;
 using burger.Models;
 using burger.Reglas;
-using Microsoft.Ajax.Utilities;
-using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -32,7 +30,6 @@ namespace burger.Controllers
             {
                 prod.Cantidad++;
                 prod.Total = prod.Precio * prod.Cantidad;
-
             }
             else
             {
@@ -60,31 +57,55 @@ namespace burger.Controllers
 
         private bool EnCarrito(Producto producto)
         {
-            Boolean existe = true;
-            var buscar = BuscarProd(producto);
-            if (buscar == null)
+            bool existe = true;
+            if (BuscarProd(producto.Id) == null)
             {
                 existe = false;
             }
             return existe;
         }
 
-        private Producto BuscarProd(Producto producto)
+        private Producto BuscarProd(int id)
         {
             int i = 0;
-            int id;
-            Producto encontrado = null;
-            while (i < ProductosCarrito.Count && encontrado == null)
+            Producto producto;
+            Producto productoEncontrado = null;
+            int encontrado = 0;
+            while (i < ProductosCarrito.Count && encontrado == 0)
             {
-                encontrado = ProductosCarrito[i];
-                id = encontrado.Id;
-                if (!(id == producto.Id))
+                producto = ProductosCarrito[i];
+                encontrado = producto.Id;
+                if (encontrado == id)
+                {
+                    productoEncontrado = producto;
+                }
+                else
                 {
                     i++;
-                    encontrado = null;
+                    encontrado = 0;
                 }
             }
-            return encontrado;
+            return productoEncontrado;
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            Producto prod = BuscarProd(id);
+            if (EnCarrito(prod) && prod.Cantidad > 1)
+            {
+                prod.Cantidad--;
+                prod.Total = prod.Precio * prod.Cantidad;
+            }
+            else
+            {
+                this.ProductosCarrito.Remove(prod);
+            }
+            var carrito = new CarritoModel
+            {
+                ListaProductos = this.ProductosCarrito
+            };
+            carrito.Total = Sumar(carrito);
+            return View("Carrito", carrito);
         }
     }
 }

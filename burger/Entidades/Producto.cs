@@ -11,6 +11,6 @@ namespace burger.Entidades
         public string Nombre { get; set; }
         public double Precio { get; set; }
         public int Cantidad { get; set; }
-        public Double Total { get; set; }
+        public double Total { get; set; }
     }
 }

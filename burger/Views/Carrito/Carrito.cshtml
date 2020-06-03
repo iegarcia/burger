@@ -27,7 +27,7 @@
                             <td><input class="form-control" type="text" value="@producto.Cantidad" /></td>
                             <td class="text-center">@producto.Precio $</td>
                             <td class="text-right">@producto.Total $</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                            <td class="text-right"><a href="/Carrito/Eliminar/@producto.Id" class="btn btn-sm btn-danger" ><i class="fa fa-trash"></i> </a> </td>
                         </tr>
                     }
 
@@ -46,11 +46,43 @@
     <div class="col mb-2">
         <div class="row">
             <div class="col-sm-12  col-md-6">
-                <a href="/Home/Index" class="btn btn-block btn-light">Continue Shopping</a>
-            </div>
-            <div class="col-sm-12 col-md-6 text-right">
-                <a href="/Checkout" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</a>
+                <a href="/Home/Index" class="btn btn-block btn-success">Agregar Productos</a>
             </div>
         </div>
+    </div>
+</div>
+<br />
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-6 register-sec">
+        <h2 class="text-center">Datos de Envio</h2>
+        <h5 class="text-center">Dinos a donde te enviamos el pedido</h5>
+        <br />
+        <form class="register-form" action="/Pedido/CargarDatos" method="post">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input type="text" name="Calle" class="form-control" placeholder="Calle" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input type="text" name="Numero" class="form-control" placeholder="Altura" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="text" name="Piso" class="form-control" placeholder="Piso">
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" name="Depto" class="form-control" placeholder="Dto">
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input type="text" name="Telefono" class="form-control" placeholder="Telefono" required>
+                </div>
+            </div>
+            <button type="submit" name="button" class="btn btn-register float-left">Enviar Pedido</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <img class="imagen" src="https://cdn.pixabay.com/photo/2018/03/13/07/37/restaurants-online-3221867_960_720.jpg" alt="Pedido" />
     </div>
 </div>
