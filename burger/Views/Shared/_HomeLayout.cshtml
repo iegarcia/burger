@@ -36,8 +36,17 @@
     </nav>
 
     <hr />
-    @*Usuario Logueado : @ViewBag.Usuario*@
-    @((burger.Entidades.User)HttpContext.Current.Session["UsuarioLogueado"]).Usuario
+    @{
+            var usuarioLogueado = ((burger.Entidades.User)HttpContext.Current.Session["UsuarioLogueado"]);
+            string usuarioNombre = "";
+            if (usuarioLogueado != null)
+            {
+                usuarioNombre = usuarioLogueado.Usuario;
+            }
+        }
+
+        El usario logueado es : @usuarioNombre
+
     </hr>
 
     <div class="container">
