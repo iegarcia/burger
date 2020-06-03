@@ -158,12 +158,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Entidades\User.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\DeliveryController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,7 +229,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Checkout\Checkout.cshtml" />
+    <Content Include="Views\Pedido\Delivery.cshtml" />
     <Content Include="Views\Carrito\Carrito.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Admin\ListadoUsuarios.cshtml" />

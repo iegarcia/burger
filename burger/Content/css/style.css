@@ -53,14 +53,12 @@ body {
 }
 /* Resumen */
 
-.register-block {
+/*.register-block {
     width: 100%;
-
-}
+}*/
 
 .imagen {
-    width: 565px;
-    height: 565px;
+    width: 521px;
 }
 
 .register-form {
