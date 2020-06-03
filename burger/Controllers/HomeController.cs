@@ -10,6 +10,7 @@ namespace burger.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Usuario = SessionHelper.UsuarioLogueado.Usuario;
             return View();
         }
     }

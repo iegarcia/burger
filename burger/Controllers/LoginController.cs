@@ -14,16 +14,15 @@ namespace burger.Controllers
 
         public ActionResult LogIn(LoginModel modelo)
         {
+            var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
+            SessionHelper.UsuarioLogueado = user;
+            if (user != null && user.Role == 1)
             {
-                var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
-                if (user != null && user.Role == 1)
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    return Redirect("/Home");
-                }
+                return RedirectToAction("Index", "Admin");
+            }
+            else
+            {
+                return Redirect("/Home");
             }
         }
     }
