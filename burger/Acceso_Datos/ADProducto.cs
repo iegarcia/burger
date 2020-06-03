@@ -13,6 +13,14 @@ namespace burger.Acceso_Datos
             return BaseDeDatos.Productos.Where(
                 prod => prod.Id == idProducto
                 ).FirstOrDefault();
+
+        }
+        public static void Restablecer()
+        {
+            foreach (var item in BaseDeDatos.Productos)
+            {
+                item.Cantidad = 1;
+            }
         }
     }
 }

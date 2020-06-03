@@ -1,5 +1,7 @@
-﻿using burger.Entidades;
+﻿using burger.Acceso_Datos;
+using burger.Entidades;
 using burger.Models;
+using burger.Reglas;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -30,5 +32,14 @@ namespace burger.Controllers
             };
             return View("Delivery", pedido);
         }
+        public ActionResult Reset()
+        {
+            ProductosCarrito.Clear();
+            RNProduct.RestablecerBD();
+            return Redirect("/Home/Index");
+        }
     }
 }
+
+
+        

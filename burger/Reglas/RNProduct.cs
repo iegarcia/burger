@@ -10,5 +10,9 @@ namespace burger.Reglas
         {
             return ADProducto.Buscar(idProducto);
         }
+        public static void RestablecerBD()
+        {
+            ADProducto.Restablecer();
+        }
     }
 }

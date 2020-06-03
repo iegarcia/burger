@@ -8,5 +8,16 @@ namespace burger.Models
         public List<Producto> ProductosPedidos { get; set; }
         public DeliveryModel DatosConsumidor { get; set; }
 
+
+        public double Sumar(List<Producto> ProductosPedidos)
+        {
+            double acumPrecio = 0;
+            foreach (var prod in this.ProductosPedidos)
+            {
+                var precio = prod.Total;
+                acumPrecio += precio;
+            }
+            return acumPrecio;
+        }
     }
 }
