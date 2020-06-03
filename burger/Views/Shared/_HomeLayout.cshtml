@@ -36,7 +36,8 @@
     </nav>
 
     <hr />
-    Usuario Logueado : @ViewBag.Usuario
+    @*Usuario Logueado : @ViewBag.Usuario*@
+    @((burger.Entidades.User)HttpContext.Current.Session["UsuarioLogueado"]).Usuario
     </hr>
 
     <div class="container">
