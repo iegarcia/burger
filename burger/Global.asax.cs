@@ -1,5 +1,7 @@
 using burger.Acceso_Datos;
+using burger.BurgerDatos;
 using burger.Entidades;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -65,7 +67,20 @@ namespace burger
                 Precio = 100
             };
 
-            BaseDeDatos.Productos.Add(p4);
+            Context context = new Context();
+
+            if (context.Productos.Count() == 0) {
+                context.Productos.Add(p4);
+                context.Productos.Add(p4);
+                context.Productos.Add(p4);
+                context.Productos.Add(p4);
+            }
+
+            if (context.Usuarios.Count() == 0)
+            {
+                context.Usuarios.Add(user1);
+            }
+
         }
     }
 }

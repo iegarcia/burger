@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using burger.BurguerDatos;
+using burger.BurgerDatos;
 using burger.Entidades;
 
 namespace burger.Controllers
@@ -40,10 +40,11 @@ namespace burger.Controllers
 
 
         [HttpPost]
-        public void AddProduct(Producto producto) {
-            Context contexto = new Context();
-            contexto.Productos.Add(producto);
-            contexto.SaveChanges();
+        public void AddProduct(int productoId) {
+            //Context contexto = new Context();
+           
+            //contexto.Productos.Add(producto);
+            //contexto.SaveChanges();
 
         }
 
