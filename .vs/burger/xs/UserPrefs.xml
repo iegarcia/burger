@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{1E807DA9-BC2C-40D9-9D87-6618C89FDD7A}|">
+  <MonoDevelop.Ide.ItemProperties.burger PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="burger/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="burger/Controllers/HomeController.cs" Line="28" Column="59" />
+      <File FileName="burger/Controllers/CarritoController.cs" />
+      <File FileName="burger/Entidades/Producto.cs" />
+      <File FileName="burger/BurguerDatos/Context.cs" />
+      <File FileName="burger/Acceso_Datos/ADProducto.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="burger" expanded="True">
+            <Node name="burger" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Entidades" expanded="True" />
+              <Node name="Scripts" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
