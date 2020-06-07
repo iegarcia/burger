@@ -1,4 +1,5 @@
-﻿using burger.Entidades;
+﻿using burger.BurgerDatos;
+using burger.Entidades;
 using burger.Models;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,21 @@ namespace burger.Acceso_Datos
 {
     public class ADUser
     {
+        private static Context context = new Context();
         public static List<User> Listar()
         {
-            return BaseDeDatos.Usuarios;
+            return context.Usuarios.ToList();
         }
 
         public static User Agregar(User user)
         {
-            BaseDeDatos.Usuarios.Add(user);
+            context.Usuarios.Add(user);
             return user;
         }
 
         public static User Buscar(string usuario, string password)
         {
-            return BaseDeDatos.Usuarios.Where(
+            return context.Usuarios.Where(
                 user => user.Password == password && 
                 user.Usuario == usuario
                 ).FirstOrDefault();
@@ -30,7 +32,7 @@ namespace burger.Acceso_Datos
         
         public static bool CuantosHay(string usuario)
         {
-            return BaseDeDatos.Usuarios.Any(
+            return context.Usuarios.Any(
                user => user.Usuario == usuario);
         }
     }

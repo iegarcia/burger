@@ -265,6 +265,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\CarritoModel.cs" />

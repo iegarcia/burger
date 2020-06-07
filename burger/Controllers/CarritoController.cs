@@ -58,7 +58,7 @@ namespace burger.Controllers
         private bool EnCarrito(Producto producto)
         {
             bool existe = true;
-            if (BuscarProd(producto.Id) == null)
+            if (producto == null || BuscarProd(producto.Id) == null)
             {
                 existe = false;
             }

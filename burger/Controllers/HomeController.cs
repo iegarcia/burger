@@ -10,28 +10,16 @@ namespace burger.Controllers
 {
     public class HomeController : Controller
     {
+        private Context context = new Context();
 
-        //public List<Producto> Productos
-        //{
-        //    get
-        //    {
-        //        if (Session["Productos"] == null)
-        //            Session["Productos"] = new List<Producto>();
-        //        return (List<Producto>)Session["Productos"];
-        //    }
-        //}
+        public List<Producto> Productos
+        {
+            get
+            {
+                return context.Productos.ToList();
+            }
+        }
 
-        //public List<Producto> ProductosCarrito
-        //{
-        //    get
-        //    {
-        //        if (Session["ProductosCarrito"] == null)
-        //            Session["ProductosCarrito"] = new List<Producto>();
-        //        return (List<Producto>)Session["ProductosCarrito"];
-        //    }
-        //}
-
-        
 
         public ActionResult Index()
         {

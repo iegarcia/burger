@@ -27,8 +27,6 @@ namespace burger
                 Role = 1
             };
 
-            BaseDeDatos.Usuarios.Add(user1);
-
             Producto p1 = new Producto
             {
                 Id = 1,
@@ -37,7 +35,6 @@ namespace burger
                 Precio = 100
             };
 
-            BaseDeDatos.Productos.Add(p1);
 
             Producto p2 = new Producto
             {
@@ -47,7 +44,6 @@ namespace burger
                 Precio = 100
             };
 
-            BaseDeDatos.Productos.Add(p2);
 
             Producto p3 = new Producto
             {
@@ -57,8 +53,6 @@ namespace burger
                 Precio = 100
             };
 
-            BaseDeDatos.Productos.Add(p3);
-
             Producto p4 = new Producto
             {
                 Id = 4,
@@ -67,19 +61,26 @@ namespace burger
                 Precio = 100
             };
 
-            Context context = new Context();
+            using (Context context = new Context()) {
+             
+                if (context.Productos.Count() == 0) {
+                    context.Productos.Add(p1);
+                    context.Productos.Add(p2);
+                    context.Productos.Add(p3);
+                    context.Productos.Add(p4);
+                    context.SaveChanges();
+                }
 
-            if (context.Productos.Count() == 0) {
-                context.Productos.Add(p4);
-                context.Productos.Add(p4);
-                context.Productos.Add(p4);
-                context.Productos.Add(p4);
+                if (context.Usuarios.ToList().Count() == 0) {
+                    context.Usuarios.Add(user1);
+                    context.SaveChanges();
+                }
+
             }
 
-            if (context.Usuarios.Count() == 0)
-            {
-                context.Usuarios.Add(user1);
-            }
+
+
+             
 
         }
     }
