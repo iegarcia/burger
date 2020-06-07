@@ -8,5 +8,8 @@ namespace burger.BurgerDatos
         public DbSet<Producto> Productos { get; set; }
 
         public DbSet<User> Usuarios { get; set; }
+
+        public DbSet<Pedido> Pedidos { get; set; }
+
     }
 }

@@ -9,9 +9,9 @@ namespace burger.Entidades
     public class Pedido
     {
         public int Id { get; set; }
-        public User usuario { get; set; }
-        public List<Producto> Precio { get; set; }
-        public DeliveryModel datosDelPedido { get; set; }
+        public User Usuario { get; set; }
+        public List<Producto> ProductosSeleccionados { get; set; }
+        public DeliveryModel DatosDeEnvio { get; set; }
         public double Total { get; set; }
     }
 }

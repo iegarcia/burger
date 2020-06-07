@@ -45,7 +45,7 @@ namespace burger
                 Cantidad = 1,
                 Precio = 100,
                 Imagen = "burger02.jpg",
-                Descripcion = "Aumenta tu vibra con esta reggae burger. <br /> Una vez que la pruebes, you are gonna love it!"
+                Descripcion = "Aumenta tu vibra con esta reggae burger. Una vez que la pruebes, you are gonna love it!"
             };
 
 
@@ -74,7 +74,7 @@ namespace burger
                 if (context.Productos.Count() == 0) {
                     context.Productos.Add(p1);
                     context.Productos.Add(p2);
-                    context.Productos.Add(p3);
+                    context.Productos.Add(p3); 
                     context.Productos.Add(p4);
                     context.SaveChanges();
                 }
