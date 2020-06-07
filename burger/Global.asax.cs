@@ -32,7 +32,9 @@ namespace burger
                 Id = 1,
                 Nombre = "Wea",
                 Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger01.jpg",
+                Descripcion = "Siente todo el sabor de la cocina mexicana en tu paladar! Viva Mexico Cabrones!!!"
             };
 
 
@@ -41,7 +43,9 @@ namespace burger
                 Id = 2,
                 Nombre = "The Bob Marley",
                 Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger02.jpg",
+                Descripcion = "Aumenta tu vibra con esta reggae burger. <br /> Una vez que la pruebes, you are gonna love it!"
             };
 
 
@@ -50,7 +54,9 @@ namespace burger
                 Id = 3,
                 Nombre = "Classic Burger",
                 Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger03.jpg",
+                Descripcion = "Si estas hecho a la antigua y prefieres los clasicos. Tenemos una hamburguesa que va con vos."
             };
 
             Producto p4 = new Producto
@@ -58,7 +64,9 @@ namespace burger
                 Id = 4,
                 Nombre = "Veggie",
                 Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger04.jpg",
+                Descripcion = "El perfecto mix de la cocina vegana combinado con los mejores elementos de la naturaleza!"
             };
 
             using (Context context = new Context()) {

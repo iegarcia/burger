@@ -1,4 +1,4 @@
-﻿
+﻿@model burger.Models.ProductosModel
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
@@ -11,38 +11,20 @@
 </div>
 <hr />
 <div class="row box">
-    <div class="card" style="width: 17rem;">
-        <img src="~/Content/images/burger01.jpg" class="card-img-top" alt="Mexicana">
-        <div class="card-body">
-            <h5 class="card-title text-center">La Wea</h5>
-            <p class="card-text">Siente todo el sabor de la cocina mexicana en tu paladar! <br />Viva Mexico Cabrones!!!</p>
-            <a href="/Carrito/Agregar/1" class="btn btn-primary">Pedir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 17rem;">
-        <img src="~/Content/images/burger02.jpg" class="card-img-top" alt="Jamaica">
-        <div class="card-body">
-            <h5 class="card-title text-center">The Bob Marley</h5>
-            <p class="card-text">Aumenta tu vibra con esta reggae burger. <br /> Una vez que la pruebes, you are gonna love it!</p>
-            <a href="/Carrito/Agregar/2" class="btn btn-primary">Pedir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 17rem;">
-        <img src="~/Content/images/burger03.jpg" class="card-img-top" alt="Clasica">
-        <div class="card-body">
-            <h5 class="card-title text-center">Classic Burger</h5>
-            <p class="card-text">Si estas hecho a la antigua y prefieres los clasicos. Tenemos una hamburguesa que va con vos.</p>
-            <a href="/Carrito/Agregar/3" class="btn btn-primary">Pedir</a>
-        </div>
-    </div>
-    <div class="card" style="width: 17rem;">
-        <img src="~/Content/images/burger04.jpg" class="card-img-top" alt="Vegana">
-        <div class="card-body">
-            <h5 class="card-title text-center">Veggie</h5>
-            <p class="card-text">El perfecto mix de la cocina vegana combinado con los mejores elementos de la naturaleza!</p>
-            <a href="/Carrito/Agregar/4" class="btn btn-primary">Pedir</a>
-        </div>
-    </div>
+    @{
+        foreach (var producto in Model.Productos)
+        {
+            <div class="card" style="width: 17rem;">
+                <img src="~/Content/images/@producto.Imagen" class="card-img-top" alt="@producto.Nombre">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@producto.Nombre</h5>
+                    <p class="card-text">@producto.Descripcion</p>
+                    <p class="card-text">@producto.Precio</p>
+                    <a href="/Carrito/Agregar/@producto.Id" class="btn btn-primary">Pedir</a>
+                </div>
+            </div>    
+            }
+        }
 </div>
 
 

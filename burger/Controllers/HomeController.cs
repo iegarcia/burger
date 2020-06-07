@@ -5,34 +5,32 @@ using System.Web;
 using System.Web.Mvc;
 using burger.BurgerDatos;
 using burger.Entidades;
+using burger.Models;
 
 namespace burger.Controllers
 {
     public class HomeController : Controller
     {
-        private Context context = new Context();
-
-        public List<Producto> Productos
-        {
-            get
-            {
-                return context.Productos.ToList();
-            }
-        }
-
 
         public ActionResult Index()
         {
-            return View();
-        }
+            List<Producto> ListaDeProductos = new List<Producto>();
+            using (Context context = new Context())
+            {
+                ListaDeProductos = context.Productos.ToList();
+            };
 
+            ProductosModel ProductosModel = new ProductosModel
+            {
+                Productos = ListaDeProductos
+            };
+            return View("Index", ProductosModel);
+        }
 
         [HttpPost]
         public void AddProduct(int productoId) {
-            //Context contexto = new Context();
-           
-            //contexto.Productos.Add(producto);
-            //contexto.SaveChanges();
+            //Lo tiene que agregar a la sesion
+          
 
         }
 
