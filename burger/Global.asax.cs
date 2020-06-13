@@ -1,5 +1,7 @@
 using burger.Acceso_Datos;
+using burger.BurgerDatos;
 using burger.Entidades;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -25,47 +27,65 @@ namespace burger
                 Role = 1
             };
 
-            BaseDeDatos.Usuarios.Add(user1);
-
             Producto p1 = new Producto
             {
                 Id = 1,
                 Nombre = "Wea",
-                Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger01.jpg",
+                Descripcion = "Siente todo el sabor de la cocina mexicana en tu paladar! Viva Mexico Cabrones!!!"
             };
 
-            BaseDeDatos.Productos.Add(p1);
 
             Producto p2 = new Producto
             {
                 Id = 2,
                 Nombre = "The Bob Marley",
-                Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger02.jpg",
+                Descripcion = "Aumenta tu vibra con esta reggae burger. Una vez que la pruebes, you are gonna love it!"
             };
 
-            BaseDeDatos.Productos.Add(p2);
 
             Producto p3 = new Producto
             {
                 Id = 3,
                 Nombre = "Classic Burger",
-                Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger03.jpg",
+                Descripcion = "Si estas hecho a la antigua y prefieres los clasicos. Tenemos una hamburguesa que va con vos."
             };
-
-            BaseDeDatos.Productos.Add(p3);
 
             Producto p4 = new Producto
             {
                 Id = 4,
                 Nombre = "Veggie",
-                Cantidad = 1,
-                Precio = 100
+                Precio = 100,
+                Imagen = "burger04.jpg",
+                Descripcion = "El perfecto mix de la cocina vegana combinado con los mejores elementos de la naturaleza!"
             };
 
-            BaseDeDatos.Productos.Add(p4);
+            using (Context context = new Context()) {
+
+                if (context.Productos.Count() == 0) {
+                    context.Productos.Add(p1);
+                    context.Productos.Add(p2);
+                    context.Productos.Add(p3); 
+                    context.Productos.Add(p4);
+                    context.SaveChanges();
+                }
+
+                if (context.Usuarios.ToList().Count() == 0) {
+                    context.Usuarios.Add(user1);
+                    context.SaveChanges();
+                }
+
+            }
+
+
+
+             
+
         }
     }
 }

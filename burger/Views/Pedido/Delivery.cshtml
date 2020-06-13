@@ -14,10 +14,10 @@
 @foreach (var pedido in Model.ProductosPedidos)
 {
     <ul>
-        <li>Hamburguesa: @pedido.Nombre</li>
+        <li>Hamburguesa: @pedido.Producto.Nombre</li>
         <ul>
             <li>Cantidad: @pedido.Cantidad</li>
-            <li>Precio por Unidad: $@pedido.Precio</li>
+            <li>Precio por Unidad: $@pedido.Producto.Precio</li>
             <li>Total: $@pedido.Total</li>
         </ul>
     </ul>

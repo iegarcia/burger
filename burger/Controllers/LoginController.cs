@@ -1,12 +1,14 @@
 ﻿using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
+using burger.BurgerDatos;
 
 namespace burger.Controllers
 {
     public class LoginController : Controller
     {
         // GET: Login
+
         public ActionResult Index()
         {
             return View("Login");
@@ -14,17 +16,17 @@ namespace burger.Controllers
 
         public ActionResult LogIn(LoginModel modelo)
         {
+            
+            var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
+            if (user != null && user.Role == 1)
             {
-                var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
-                if (user != null && user.Role == 1)
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    return Redirect("/Home");
-                }
+                return RedirectToAction("Index", "Admin");
             }
+            else
+            {
+                return Redirect("/Home");
+            }
+           
         }
     }
 }
