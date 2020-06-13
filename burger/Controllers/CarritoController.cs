@@ -14,97 +14,80 @@ namespace burger.Controllers
         {
             return View("Carrito");
         }
-        public List<Producto> ProductosCarrito
+        public List<ProductoPedido> ProductosCarrito
         {
             get
             {
-                if (Session["Productos"] == null)
-                    Session["Productos"] = new List<Producto>();
-                return (List<Producto>)Session["Productos"];
+                if (Session["ProductosPedidos"] == null)
+                    Session["ProductosPedidos"] = new List<ProductoPedido>();
+                return (List<ProductoPedido>)Session["ProductosPedidos"];
             }
         }
         public ActionResult Agregar(int id)
         {
-            Producto prod = RNProduct.BuscarProducto(id);
-            if (EnCarrito(prod))
-            {
-                prod.Cantidad++;
-                prod.Total = prod.Precio * prod.Cantidad;
+
+
+            ProductoPedido producto = this.BuscarProducto(id);
+
+            if (producto != null) {
+                producto.Cantidad++;
+                producto.Total = producto.Cantidad * producto.Producto.Precio;
+            } else {
+                Producto productoObject = RNProduct.BuscarProducto(id);
+                ProductoPedido nuevoProducto = new ProductoPedido
+                {
+                    Producto = productoObject,
+                    Cantidad = 1,
+                    Total = productoObject.Precio
+                };
+
+                ProductosCarrito.Add(nuevoProducto);
             }
-            else
-            {
-                prod.Total = prod.Precio * prod.Cantidad;
-                this.ProductosCarrito.Add(prod);
-            }
-            var carrito = new CarritoModel
-            {
-                ListaProductos = this.ProductosCarrito
-            };
-            carrito.Total = Sumar(carrito);
-            return View("Carrito", carrito);
+
+            return this.CarritoActualizado();
         }
 
-        private double Sumar(CarritoModel carrito)
+        private double Sumar(List<ProductoPedido> productos)
         {
             double acumPrecio = 0;
-            foreach (var prod in carrito.ListaProductos)
+            foreach (var prod in productos)
             {
-                var precio = prod.Total;
+                var precio = prod.Producto.Precio * prod.Cantidad;
                 acumPrecio += precio;
             }
             return acumPrecio;
         }
 
-        private bool EnCarrito(Producto producto)
-        {
-            bool existe = true;
-            if (producto == null || BuscarProd(producto.Id) == null)
-            {
-                existe = false;
-            }
-            return existe;
-        }
-
-        private Producto BuscarProd(int id)
-        {
-            int i = 0;
-            Producto producto;
-            Producto productoEncontrado = null;
-            int encontrado = 0;
-            while (i < ProductosCarrito.Count && encontrado == 0)
-            {
-                producto = ProductosCarrito[i];
-                encontrado = producto.Id;
-                if (encontrado == id)
-                {
-                    productoEncontrado = producto;
-                }
-                else
-                {
-                    i++;
-                    encontrado = 0;
-                }
-            }
-            return productoEncontrado;
+        private ProductoPedido BuscarProducto (int id) { 
+            return ProductosCarrito.Find(prod => prod.Producto.Id == id);
         }
 
         public ActionResult Eliminar(int id)
         {
-            Producto prod = BuscarProd(id);
-            if (EnCarrito(prod) && prod.Cantidad > 1)
-            {
-                prod.Cantidad--;
-                prod.Total = prod.Precio * prod.Cantidad;
+            ProductoPedido prod = BuscarProducto(id);
+
+            if (prod != null) {
+                if (prod.Cantidad > 1)
+                {
+                    prod.Cantidad--;
+                    prod.Total = prod.Producto.Precio * prod.Cantidad;
+                }
+                else
+                {
+                    this.ProductosCarrito.Remove(prod);
+                }
             }
-            else
-            {
-                this.ProductosCarrito.Remove(prod);
-            }
+
+            return this.CarritoActualizado();
+        }
+
+        private ActionResult CarritoActualizado() {
             var carrito = new CarritoModel
             {
-                ListaProductos = this.ProductosCarrito
+                ListaProductos = this.ProductosCarrito,
+                Total = Sumar(this.ProductosCarrito)
             };
-            carrito.Total = Sumar(carrito);
+
             return View("Carrito", carrito);
         }
     }

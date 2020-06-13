@@ -11,5 +11,7 @@ namespace burger.BurgerDatos
 
         public DbSet<Pedido> Pedidos { get; set; }
 
+        public DbSet<ProductosPorPedido> ProductosPorPedido { get; set; }
+
     }
 }

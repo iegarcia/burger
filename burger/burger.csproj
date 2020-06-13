@@ -267,6 +267,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\ProductoPedido.cs" />
+    <Compile Include="Entidades\ProductosPorPedido.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Entidades\User.cs" />

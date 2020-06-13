@@ -5,17 +5,18 @@ using burger.Models;
 using burger.Reglas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace burger.Controllers
 {
     public class PedidoController : Controller
     {
-        public List<Producto> ProductosCarrito
+        public List<ProductoPedido> ProductosCarrito
         {
             get
             {
-                return (List<Producto>)Session["Productos"];
+                return (List<ProductoPedido>)Session["ProductosPedidos"];
             }
         }
 
@@ -39,27 +40,46 @@ namespace burger.Controllers
         public ActionResult Reset()
         {
             ProductosCarrito.Clear();
-            RNProduct.RestablecerBD();
             return Redirect("/Home/Index");
         }
 
         private Boolean ConfirmarPedido(PedidoModel pedidoModel) {
             Pedido pedidoDB = new Pedido
             {
-                ProductosSeleccionados = ProductosCarrito,
-                DatosDeEnvio = pedidoModel.DatosConsumidor,
-                Total = pedidoModel.Sumar(ProductosCarrito)
+               Calle = pedidoModel.DatosConsumidor.Calle,
+               Numero = pedidoModel.DatosConsumidor.Numero,
+               Piso = pedidoModel.DatosConsumidor.Piso,
+               Depto = pedidoModel.DatosConsumidor.Depto,
+               Telefono = pedidoModel.DatosConsumidor.Telefono,
+               Total = pedidoModel.Sumar(ProductosCarrito),
+               FechaDePedido = DateTime.Now
             };
 
-            int dbImpact = 0;
+            int dbImpactPedido = 0;
+            int dbImpactProductos = 0;
 
             using (Context context = new Context())
             {
                 context.Pedidos.Add(pedidoDB);
-                dbImpact = context.SaveChanges();
+                dbImpactPedido = context.SaveChanges();
+
+                List<ProductosPorPedido> productosPorPedido = ProductosCarrito.Select(producto =>
+                {
+                    return new ProductosPorPedido
+                    {
+                        ProductoId = producto.Producto.Id,
+                        PedidoId = pedidoDB.Id,
+                        Cantidad = producto.Cantidad
+                    };
+                }).ToList();
+
+                context.ProductosPorPedido.AddRange(productosPorPedido);
+                dbImpactProductos = context.SaveChanges();
             }
 
-            return dbImpact > 0;
+            
+
+            return dbImpactPedido > 0 && dbImpactProductos == ProductosCarrito.Count();
         }
 
     }

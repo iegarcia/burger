@@ -19,12 +19,5 @@ namespace burger.Acceso_Datos
                 ).FirstOrDefault();
 
         }
-        public static void Restablecer()
-        {
-            foreach (var item in Context.Productos)
-            {
-                item.Cantidad = 1;
-            }
-        }
     }
 }
