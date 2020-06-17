@@ -27,13 +27,12 @@ namespace burger.Controllers
             return View("Index", ProductosModel);
         }
 
-        [HttpPost]
-        public void AddProduct(int productoId) {
-            //Lo tiene que agregar a la sesion
-          
+        //[HttpPost]
+        //public void AddProduct(int productoId) {
+        //    //Lo tiene que agregar a la sesion
 
-        }
 
+        //}
 
     }
 }

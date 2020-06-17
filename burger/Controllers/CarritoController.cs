@@ -25,14 +25,14 @@ namespace burger.Controllers
         }
         public ActionResult Agregar(int id)
         {
-
-
             ProductoPedido producto = this.BuscarProducto(id);
-
-            if (producto != null) {
+            if (producto != null)
+            {
                 producto.Cantidad++;
                 producto.Total = producto.Cantidad * producto.Producto.Precio;
-            } else {
+            }
+            else
+            {
                 Producto productoObject = RNProduct.BuscarProducto(id);
                 ProductoPedido nuevoProducto = new ProductoPedido
                 {
@@ -40,10 +40,8 @@ namespace burger.Controllers
                     Cantidad = 1,
                     Total = productoObject.Precio
                 };
-
                 ProductosCarrito.Add(nuevoProducto);
             }
-
             return this.CarritoActualizado();
         }
 
@@ -58,7 +56,8 @@ namespace burger.Controllers
             return acumPrecio;
         }
 
-        private ProductoPedido BuscarProducto (int id) { 
+        private ProductoPedido BuscarProducto(int id)
+        {
             return ProductosCarrito.Find(prod => prod.Producto.Id == id);
         }
 
@@ -66,7 +65,8 @@ namespace burger.Controllers
         {
             ProductoPedido prod = BuscarProducto(id);
 
-            if (prod != null) {
+            if (prod != null)
+            {
                 if (prod.Cantidad > 1)
                 {
                     prod.Cantidad--;
@@ -81,7 +81,8 @@ namespace burger.Controllers
             return this.CarritoActualizado();
         }
 
-        private ActionResult CarritoActualizado() {
+        private ActionResult CarritoActualizado()
+        {
             var carrito = new CarritoModel
             {
                 ListaProductos = this.ProductosCarrito,

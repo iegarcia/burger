@@ -28,31 +28,47 @@ namespace burger.Controllers
 
         public ActionResult CargarDatos(DeliveryModel datosDeEnvio)
         {
+            Boolean logged = EstaLogueado();
+            Boolean pedidoConfirmado = false;
             var pedido = new PedidoModel
             {
                 ProductosPedidos = ProductosCarrito,
                 DatosConsumidor = datosDeEnvio
             };
-
-            Boolean pedidoConfirmado = ConfirmarPedido(pedido);
+            if (logged == true)
+            {
+                pedidoConfirmado = ConfirmarPedido(pedido);
+            }
             return pedidoConfirmado ? View("Delivery", pedido) : View("Error");
         }
+
+        public bool EstaLogueado()
+        {
+            bool logged = false;
+            if (SessionHelper.UsuarioLogueado != null)
+            {
+                logged = true;
+            }
+            return logged;
+        }
+
         public ActionResult Reset()
         {
             ProductosCarrito.Clear();
             return Redirect("/Home/Index");
         }
 
-        private Boolean ConfirmarPedido(PedidoModel pedidoModel) {
+        private Boolean ConfirmarPedido(PedidoModel pedidoModel)
+        {
             Pedido pedidoDB = new Pedido
             {
-               Calle = pedidoModel.DatosConsumidor.Calle,
-               Numero = pedidoModel.DatosConsumidor.Numero,
-               Piso = pedidoModel.DatosConsumidor.Piso,
-               Depto = pedidoModel.DatosConsumidor.Depto,
-               Telefono = pedidoModel.DatosConsumidor.Telefono,
-               Total = pedidoModel.Sumar(ProductosCarrito),
-               FechaDePedido = DateTime.Now
+                Calle = pedidoModel.DatosConsumidor.Calle,
+                Numero = pedidoModel.DatosConsumidor.Numero,
+                Piso = pedidoModel.DatosConsumidor.Piso,
+                Depto = pedidoModel.DatosConsumidor.Depto,
+                Telefono = pedidoModel.DatosConsumidor.Telefono,
+                Total = pedidoModel.Sumar(ProductosCarrito),
+                FechaDePedido = DateTime.Now
             };
 
             int dbImpactPedido = 0;
@@ -77,7 +93,7 @@ namespace burger.Controllers
                 dbImpactProductos = context.SaveChanges();
             }
 
-            
+
 
             return dbImpactPedido > 0 && dbImpactProductos == ProductosCarrito.Count();
         }

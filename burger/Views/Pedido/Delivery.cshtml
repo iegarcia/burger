@@ -3,7 +3,7 @@
     ViewBag.Title = "Delivery";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
-
+@{ var usuarioLogueado = ((burger.Entidades.User)HttpContext.Current.Session["UsuarioLogueado"]); }
 <center><i class="fas fa-shipping-fast fa-8x"></i></center>
 <br />
 <h2 class="home-title">¡Su pedido esta en camino!</h2>
@@ -15,24 +15,23 @@
 {
     <ul>
         <li>Hamburguesa: @pedido.Producto.Nombre</li>
-        <ul>
-            <li>Cantidad: @pedido.Cantidad</li>
-            <li>Precio por Unidad: $@pedido.Producto.Precio</li>
-            <li>Total: $@pedido.Total</li>
-        </ul>
+        <li>Cantidad: @pedido.Cantidad</li>
+        <li>Precio por Unidad: $@pedido.Producto.Precio</li>
+        <li>Total: $@pedido.Total</li>
     </ul>
 }
 <h4 style=" background-color: lightcyan">Total a Pagar: $ @Model.Sumar(Model.ProductosPedidos)</h4>
 
 <hr />
+<h4>A nombre de: @usuarioLogueado.Usuario </h4>
 <h4>El mismo se entregara en:</h4>
-<h4 style=" background-color: lightcyan"> @Model.DatosConsumidor.Calle al @Model.DatosConsumidor.Numero (Piso: @Model.DatosConsumidor.Piso|Depto: @Model.DatosConsumidor.Depto)
-<h4 />
-</p>
+<h5 style="background-color: lightcyan">
+    @Model.DatosConsumidor.Calle al @Model.DatosConsumidor.Numero (Piso: @Model.DatosConsumidor.Piso | Depto: @Model.DatosConsumidor.Depto)
+</h5>
 <h4>En caso de demora se llamará al número:</h4>
-<h4 style=" background-color: lightcyan"> @Model.DatosConsumidor.Telefono</h4>
+<h5 style="background-color: lightcyan"> @Model.DatosConsumidor.Telefono</h5>
 <hr />
-<h2>Que lo disfrute!</h2>
+<h2 class="text-center">Que lo disfrute!</h2>
 <hr />
 <div class="col mb-2">
     <div class="row">
