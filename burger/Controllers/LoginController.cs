@@ -16,7 +16,9 @@ namespace burger.Controllers
         public ActionResult LogIn(LoginModel modelo)
         {
             var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
+
             SessionHelper.UsuarioLogueado = user;
+
             if (user != null && user.Role == 1)
             {
                 return RedirectToAction("Index", "Admin");

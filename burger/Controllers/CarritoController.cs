@@ -12,7 +12,7 @@ namespace burger.Controllers
         // GET: Carrito
         public ActionResult Index()
         {
-            return View("Carrito");
+            return this.CarritoActualizado();
         }
         public List<ProductoPedido> ProductosCarrito
         {

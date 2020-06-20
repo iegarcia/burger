@@ -23,11 +23,11 @@ namespace burger.Reglas
 
         public static User Agregar(User user)
         {
-            var existe = ADUser.CuantosHay(user.Usuario);
-            if (existe)
+            if (ADUser.ExisteUsuario(user.Usuario))
             {
                 throw new Exception("Usuario Existente");
             }
+
             return ADUser.Agregar(user);
         }
     }
