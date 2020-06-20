@@ -1,4 +1,5 @@
-﻿using burger.Models;
+﻿using burger.Entidades;
+using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
 
@@ -16,7 +17,9 @@ namespace burger.Controllers
         public ActionResult LogIn(LoginModel modelo)
         {
             var user = RNUser.BuscarUsuario(modelo.Usuario, modelo.Password);
+
             SessionHelper.UsuarioLogueado = user;
+
             if (user != null && user.Role == 1)
             {
                 return RedirectToAction("Index", "Admin");
@@ -26,8 +29,6 @@ namespace burger.Controllers
                 return Redirect("/Home");
             }
         }
-
-        
 
         public ActionResult CerrarSesion()
         {

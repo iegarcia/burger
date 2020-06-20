@@ -21,13 +21,13 @@ namespace burger.Reglas
             return ADUser.Buscar(usuario, password);
         }
 
-        public static User Agregar(User user)
+        public static Boolean Agregar(User user)
         {
-            var existe = ADUser.CuantosHay(user.Usuario);
-            if (existe)
+            if (ADUser.ExisteUsuario(user.Usuario))
             {
                 throw new Exception("Usuario Existente");
             }
+
             return ADUser.Agregar(user);
         }
     }
