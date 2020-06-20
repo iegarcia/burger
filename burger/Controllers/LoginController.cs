@@ -32,7 +32,7 @@ namespace burger.Controllers
 
         public ActionResult CerrarSesion()
         {
-            SessionHelper.UsuarioLogueado = null;
+            SessionHelper.CerrarSesion();
             return Redirect("/Home/Index");
         }
     }

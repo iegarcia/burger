@@ -6,41 +6,49 @@
 <div class="row">
     <div class="col-12">
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Producto</th>
-                        <th scope="col" class="text-center">Cantidad</th>
-                        <th scope="col" class="text-center">Precio por Unidad</th>
-                        <th scope="col" class="text-right">Precio</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
+            @if (Model.ListaProductos.Count == 0)
+            {
+                <h3 class="text-center">Tu Carrito esta Vacio</h3>
+                <br />
+            }
+            else
+            {
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col" class="text-center">Cantidad</th>
+                            <th scope="col" class="text-center">Precio por Unidad</th>
+                            <th scope="col" class="text-right">Precio</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    @foreach (var producto in Model.ListaProductos)
-                    {
-                    <tr>
-                        <td>@producto.Producto.Id</td>
-                        <td>@producto.Producto.Nombre</td>
-                        <td class="text-center">@producto.Cantidad</td>
-                        <td class="text-center">$@producto.Producto.Precio </td>
-                        <td class="text-right">$@producto.Total </td>
-                        <td class="text-right"><a href="/Carrito/Eliminar/@producto.Producto.Id" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
-                    </tr>
-                    }
+                        @foreach (var producto in Model.ListaProductos)
+                        {
+                            <tr>
+                                <td>@producto.Producto.Id</td>
+                                <td>@producto.Producto.Nombre</td>
+                                <td class="text-center">@producto.Cantidad</td>
+                                <td class="text-center">$@producto.Producto.Precio </td>
+                                <td class="text-right">$@producto.Total </td>
+                                <td class="text-right"><a href="/Carrito/Eliminar/@producto.Producto.Id" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
+                            </tr>
+                        }
 
-                    <tr class="alert-info">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><strong>Total</strong></td>
-                        <td class="text-right"><strong>$@Model.Total</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr class="alert-info">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>$@Model.Total</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
         </div>
     </div>
     <div class="col mb-2">

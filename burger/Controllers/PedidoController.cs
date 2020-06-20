@@ -53,7 +53,7 @@ namespace burger.Controllers
 
         public ActionResult Reset()
         {
-            ProductosCarrito.Clear();
+            SessionHelper.Reset();
             return Redirect("/Home/Index");
         }
 

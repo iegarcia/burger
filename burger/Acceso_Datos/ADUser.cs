@@ -31,7 +31,7 @@ namespace burger.Acceso_Datos
                 context.Usuarios.Add(user);
                 dbImpact = context.SaveChanges();
             }
-            
+
             return dbImpact > 0;
         }
 
@@ -40,13 +40,12 @@ namespace burger.Acceso_Datos
             User user;
             using (Context context = new Context())
             {
-                user = context.Usuarios.Where(u => u.Usuario == usuario && u.Password == password).First();
-
+                user = context.Usuarios.Where(u => u.Usuario == usuario && u.Password == password).FirstOrDefault();
             }
 
             return user;
         }
-        
+
         public static bool ExisteUsuario(string usuario)
         {
 

@@ -14,15 +14,7 @@ namespace burger.Controllers
         {
             return this.CarritoActualizado();
         }
-        public List<ProductoPedido> ProductosCarrito
-        {
-            get
-            {
-                if (Session["ProductosPedidos"] == null)
-                    Session["ProductosPedidos"] = new List<ProductoPedido>();
-                return (List<ProductoPedido>)Session["ProductosPedidos"];
-            }
-        }
+        
         public ActionResult Agregar(int id)
         {
             ProductoPedido producto = this.BuscarProducto(id);
@@ -40,7 +32,7 @@ namespace burger.Controllers
                     Cantidad = 1,
                     Total = productoObject.Precio
                 };
-                ProductosCarrito.Add(nuevoProducto);
+                SessionHelper.ProductosCarrito.Add(nuevoProducto);
             }
             return this.CarritoActualizado();
         }
@@ -58,7 +50,7 @@ namespace burger.Controllers
 
         private ProductoPedido BuscarProducto(int id)
         {
-            return ProductosCarrito.Find(prod => prod.Producto.Id == id);
+            return SessionHelper.ProductosCarrito.Find(prod => prod.Producto.Id == id);
         }
 
         public ActionResult Eliminar(int id)
@@ -74,7 +66,7 @@ namespace burger.Controllers
                 }
                 else
                 {
-                    this.ProductosCarrito.Remove(prod);
+                    SessionHelper.ProductosCarrito.Remove(prod);
                 }
             }
 
@@ -85,8 +77,8 @@ namespace burger.Controllers
         {
             var carrito = new CarritoModel
             {
-                ListaProductos = this.ProductosCarrito,
-                Total = Sumar(this.ProductosCarrito)
+                ListaProductos = SessionHelper.ProductosCarrito,
+                Total = Sumar(SessionHelper.ProductosCarrito)
             };
 
             return View("Carrito", carrito);

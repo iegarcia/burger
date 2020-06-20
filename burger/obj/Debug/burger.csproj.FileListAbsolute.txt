@@ -315,8 +315,8 @@ D:\ORT\Nuevas Tecnologias\burger\burger\bin\es\System.Web.Razor.resources.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\es\System.Web.WebPages.resources.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csproj.CoreCompileInputs.cache
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csproj.CopyComplete
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.pdb
+D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache
