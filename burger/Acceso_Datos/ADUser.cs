@@ -40,7 +40,7 @@ namespace burger.Acceso_Datos
             User user;
             using (Context context = new Context())
             {
-                user = context.Usuarios.Where(user => user.Usuario == usuario && user.Usuario == usuario).First();
+                user = context.Usuarios.Where(u => u.Usuario == usuario && u.Password == password).First();
 
             }
 
