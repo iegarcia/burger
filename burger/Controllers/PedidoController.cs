@@ -29,27 +29,26 @@ namespace burger.Controllers
         public ActionResult CargarDatos(DeliveryModel datosDeEnvio)
         {
             Boolean logged = EstaLogueado();
-            Boolean pedidoConfirmado = false;
             var pedido = new PedidoModel
             {
                 ProductosPedidos = ProductosCarrito,
                 DatosConsumidor = datosDeEnvio
             };
-            if (logged == true)
+            ActionResult result;
+            if (!logged)
             {
-                pedidoConfirmado = ConfirmarPedido(pedido);
+                result = Redirect("/Login/Index");
             }
-            return pedidoConfirmado ? View("Delivery", pedido) : View("Error");
+            else
+            {
+                result = ConfirmarPedido(pedido) ? View("Delivery", pedido) : View("Error");
+            }
+            return result;
         }
 
         public bool EstaLogueado()
         {
-            bool logged = false;
-            if (SessionHelper.UsuarioLogueado != null)
-            {
-                logged = true;
-            }
-            return logged;
+            return SessionHelper.UsuarioLogueado != null;
         }
 
         public ActionResult Reset()
