@@ -21,7 +21,7 @@ namespace burger.Reglas
             return ADUser.Buscar(usuario, password);
         }
 
-        public static User Agregar(User user)
+        public static Boolean Agregar(User user)
         {
             if (ADUser.ExisteUsuario(user.Usuario))
             {

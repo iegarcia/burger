@@ -17,8 +17,15 @@ namespace burger.Controllers
         {
             // Los usuarios que se  den de alta por este metodo van a ser de tipo cliente, por eso seteamos el role en 0
             modelo.Role = 0;
-            RNUser.Agregar(modelo);
-            return View("Register", modelo);
+            var userAdded = RNUser.Agregar(modelo);
+            ActionResult response = View("Register");
+
+            if (userAdded) {
+                SessionHelper.UsuarioLogueado = modelo;
+                response = Redirect("/Home");
+            }
+
+            return response;
         }
     }
 }

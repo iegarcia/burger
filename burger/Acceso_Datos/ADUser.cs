@@ -23,15 +23,16 @@ namespace burger.Acceso_Datos
             return users;
         }
 
-        public static User Agregar(User user)
+        public static Boolean Agregar(User user)
         {
+            int dbImpact = 0;
             using (Context context = new Context())
             {
                 context.Usuarios.Add(user);
-                context.SaveChanges();
+                dbImpact = context.SaveChanges();
             }
             
-            return user;
+            return dbImpact > 0;
         }
 
         public static User Buscar(string usuario, string password)

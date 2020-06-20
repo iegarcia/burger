@@ -1,4 +1,5 @@
-﻿using burger.Models;
+﻿using burger.Entidades;
+using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
 
@@ -28,8 +29,6 @@ namespace burger.Controllers
                 return Redirect("/Home");
             }
         }
-
-        
 
         public ActionResult CerrarSesion()
         {
