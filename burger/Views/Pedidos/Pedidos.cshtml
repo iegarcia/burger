@@ -1,0 +1,21 @@
+﻿@model burger.Models.PedidoModel
+
+@{
+    ViewBag.Title = "Pedidos";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div>
+    <h2>Listar Pedidos</h2>
+    <h4>Hola @Model.UsuarioLogueado !</h4>
+    <p>
+        En esta seccion se muestran los pedidos realizados. Si estas aca significa que sos un
+        <strong>usuario administrador</strong>
+    </p>
+</div>
+<hr />
+<p>ACA HAY QUE CARGAR  LOS PEDIDOS CONFIRMADOS POR USUARIOS</p>
+</table>
+<br />
+<a class="btn btn-info" href="/Home/Index">Ir al inicio</a>
+

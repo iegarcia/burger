@@ -4,19 +4,21 @@ using System.Web.Mvc;
 
 namespace burger.Controllers
 {
-    public class AdminController : Controller
+    public class UsuariosController : Controller
     {
-        // GET: Admin
         public ActionResult Index()
         {
             var usuario = SessionHelper.UsuarioLogueado;
             var users = RNUser.ListarUsuarios();
-            AdminModel modelo = new AdminModel();
+            UserModel modelo = new UserModel
+            {
+                ListaUsuarios = users,
+            };
             if (usuario.Role == 1)
             {
                 modelo.UsuarioLogueado = usuario.Usuario;
             }
-            return View("Admin", modelo);
+            return View("Usuarios", modelo);
         }
     }
 }
