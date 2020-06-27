@@ -1,5 +1,4 @@
 ﻿using burger.Entidades;
-using burger.Models;
 using System.Collections.Generic;
 
 namespace burger.Models

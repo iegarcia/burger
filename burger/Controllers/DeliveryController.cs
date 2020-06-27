@@ -61,6 +61,7 @@ namespace burger.Controllers
         {
             Pedido pedidoDB = new Pedido
             {
+                UsuarioId = SessionHelper.UsuarioLogueado.Id,
                 Calle = pedidoModel.DatosConsumidor.Calle,
                 Numero = pedidoModel.DatosConsumidor.Numero,
                 Piso = pedidoModel.DatosConsumidor.Piso,

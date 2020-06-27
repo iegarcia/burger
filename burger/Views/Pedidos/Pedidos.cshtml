@@ -1,4 +1,4 @@
-﻿@model burger.Models.PedidoModel
+﻿@model burger.Models.PedidoAdminModel
 
 @{
     ViewBag.Title = "Pedidos";
@@ -6,16 +6,47 @@
 }
 
 <div>
-    <h2>Listar Pedidos</h2>
-    <h4>Hola @Model.UsuarioLogueado !</h4>
+    <h2>Listado de pedidos</h2>
     <p>
-        En esta seccion se muestran los pedidos realizados. Si estas aca significa que sos un
+        En esta seccion se muestran los pedidos realizados. Si estas viendo esto significa que sos un
         <strong>usuario administrador</strong>
     </p>
 </div>
 <hr />
-<p>ACA HAY QUE CARGAR  LOS PEDIDOS CONFIRMADOS POR USUARIOS</p>
-</table>
+<div class="accordion" id="accordionExample">
+    @foreach (var p in Model.Pedidos)
+    {
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#Pedido-@p.Pedido.Id" aria-expanded="true" aria-controls="Pedido-@p.Pedido.Id">
+                        @p.Usuario.Usuario
+                    </button>
+                </h2>
+            </div>
+
+            <div id="Pedido-@p.Pedido.Id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="customers">
+                        <tr>
+                            <th>Productos</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        @foreach (var item in p.ProductosPedidos)
+                        {
+                            <tr>
+                                <td>@item.Producto.Nombre</td>
+                                <td>@item.Cantidad</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
 <br />
-<a class="btn btn-info" href="/Home/Index">Ir al inicio</a>
+<a class="btn btn-info" href="/Admin">Volver Atras</a>
+<a class="btn btn-success" href="/Home/Index">Ir al inicio</a>
 

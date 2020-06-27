@@ -1,11 +1,7 @@
 ﻿using burger.Acceso_Datos;
-using burger.BurgerDatos;
 using burger.Entidades;
-using burger.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace burger.Reglas
 {
@@ -16,9 +12,13 @@ namespace burger.Reglas
             return ADUser.Listar();
         }
 
-        public static User BuscarUsuario(string usuario, string password) 
+        public static User BuscarUsuario(string usuario, string password)
         {
             return ADUser.Buscar(usuario, password);
+        }
+        public static User BuscarUsuarioPorId(int userId)
+        {
+            return ADUser.BuscarPorID(userId);
         }
 
         public static Boolean Agregar(User user)

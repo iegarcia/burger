@@ -44,6 +44,16 @@ namespace burger.Acceso_Datos
             }
 
             return user;
+        } 
+        public static User BuscarPorID(int usuarioId)
+        {
+            User user;
+            using (Context context = new Context())
+            {
+                user = context.Usuarios.Where(u => u.Id == usuarioId).FirstOrDefault();
+            }
+
+            return user;
         }
 
         public static bool ExisteUsuario(string usuario)

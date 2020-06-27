@@ -233,6 +233,7 @@
     <Compile Include="Acceso_Datos\ADProducto.cs" />
     <Compile Include="Acceso_Datos\ADUser.cs" />
     <Compile Include="Acceso_Datos\BaseDeDatos.cs" />
+    <Compile Include="Acceso_Datos\ADProductosPorPedido.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -268,9 +269,11 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\SessionHelper.cs" />
     <Compile Include="Entidades\Pedido.cs" />
+    <Compile Include="Entidades\PedidoCompleto.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\ProductoPedido.cs" />
     <Compile Include="Entidades\ProductosPorPedido.cs" />
+    <Compile Include="Models\PedidoAdminModel.cs" />
     <Compile Include="Models\PedidoModel.cs" />
     <Compile Include="Models\CarritoModel.cs" />
     <Compile Include="Entidades\User.cs" />
@@ -290,6 +293,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reglas\RNPedidos.cs" />
     <Compile Include="Reglas\RNProduct.cs" />
+    <Compile Include="Reglas\RNProductosPorPedidos.cs" />
     <Compile Include="Reglas\RNUser.cs" />
     <Compile Include="BurgerDatos\Context.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -297,7 +301,6 @@
     <Compile Include="Models\AdminModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\burger.BurgerDatos.Context.mdf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="favicon.ico" />
@@ -464,6 +467,7 @@
     <Content Include="Views\Usuarios\Usuarios.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Views\ADPedido\" />
     <Folder Include="Views\RNPedidos\" />
