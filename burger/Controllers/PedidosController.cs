@@ -10,7 +10,7 @@ namespace burger.Controllers
     {
         public ActionResult Index()
         {
-            // Aca hay que meter la logica para levantar  los pedidos y mandarlos
+            // Aca hay que meter la logica para levantar los pedidos y mandarlos
             return View ("Pedidos");
         }
     }

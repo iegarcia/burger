@@ -158,7 +158,6 @@ C:\Users\nacho\Desktop\burger\burger\obj\Debug\burger.pdb
 C:\Users\nacho\Desktop\burger\burger\bin\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\nacho\Desktop\burger\burger\bin\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\nacho\Desktop\burger\burger\bin\runtimes\win-arm\native\e_sqlite3.dll
-C:\Users\nacho\Desktop\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\runtimes\win-x86\native\e_sqlite3.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\runtimes\win-x64\native\e_sqlite3.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\bin\runtimes\win-arm\native\e_sqlite3.dll
@@ -320,3 +319,4 @@ D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csproj.CopyComplete
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.dll
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.pdb
 D:\ORT\Nuevas Tecnologias\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache
+C:\Users\nacho\Desktop\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache

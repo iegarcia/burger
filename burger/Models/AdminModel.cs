@@ -1,11 +1,8 @@
-﻿using System;
-namespace burger.Models
+﻿namespace burger.Models
 {
     public class AdminModel
     {
-        public AdminModel()
-        {
-            public string UsuarioLogueado { get; set; }
-    }
+        public string UsuarioLogueado { get; set; }
     }
 }
+
