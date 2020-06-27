@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace burger.Controllers
 {
-    public class PedidoController : Controller
+    public class DeliveryController : Controller
     {
         public List<ProductoPedido> ProductosCarrito
         {

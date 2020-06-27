@@ -1,0 +1,21 @@
+﻿@model burger.Models.UserModel
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div>
+    <h2>Listar Usuarios</h2>
+    <h4>Hola @Model.UsuarioLogueado !</h4>
+    <p>
+        Si estas aca significa que sos un <strong>usuario administrador</strong>
+    </p>
+</div>
+<hr />
+<a class="btn btn-info" href="/Usuarios/Usuarios">Ver lista de Usuarios</a>
+<a class="btn btn-info" href="/Pedidos/Pedidos">Ver lista de Pedidos</a>
+
+<br />
+<a class="btn btn-info" href="/Home/Index">Ir al inicio</a>
+

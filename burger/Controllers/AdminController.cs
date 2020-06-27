@@ -11,15 +11,12 @@ namespace burger.Controllers
         {
             var usuario = SessionHelper.UsuarioLogueado;
             var users = RNUser.ListarUsuarios();
-            UserModel modelo = new UserModel
-            {
-                ListaUsuarios = users,
-            };
+            AdminModel modelo = new AdminModel();
             if (usuario.Role == 1)
             {
                 modelo.UsuarioLogueado = usuario.Usuario;
             }
-            return View("ListadoUsuarios", modelo);
+            return View("Admin", modelo);
         }
     }
 }
