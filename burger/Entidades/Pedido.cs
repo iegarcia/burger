@@ -9,7 +9,7 @@ namespace burger.Entidades
     public class Pedido
     {
         public int Id { get; set; }
-        public User Usuario { get; set; }
+        public int UsuarioId { get; set; }
         public string Calle { get; set; }
         public string Numero { get; set; }
         public int Piso { get; set; }
