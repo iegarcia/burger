@@ -469,8 +469,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
-    <Folder Include="Views\ADPedido\" />
-    <Folder Include="Views\RNPedidos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -10,13 +10,23 @@ namespace burger.Controllers
     {
         public ActionResult Index()
         {
-            var listaPedidos = RNPedidos.ListarPedidos();
-            List<PedidoCompleto> pedidos = ArmarPedidoCompleto(listaPedidos);
-            PedidoAdminModel pam = new PedidoAdminModel
+            var usuario = SessionHelper.UsuarioLogueado;
+            ActionResult validar;
+            if (usuario == null)
             {
-                Pedidos = pedidos
-            };
-            return View("Pedidos", pam);
+                validar = Redirect("/Login/Index");
+            }
+            else
+            {
+                var listaPedidos = RNPedidos.ListarPedidos();
+                List<PedidoCompleto> pedidos = ArmarPedidoCompleto(listaPedidos);
+                PedidoAdminModel pam = new PedidoAdminModel
+                {
+                    Pedidos = pedidos
+                };
+                validar = View("Pedidos", pam);
+            }
+            return validar;
         }
 
         public List<PedidoCompleto> ArmarPedidoCompleto(List<Pedido> listaPedidos)

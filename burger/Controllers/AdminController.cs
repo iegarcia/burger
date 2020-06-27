@@ -10,15 +10,20 @@ namespace burger.Controllers
         {
             var usuario = SessionHelper.UsuarioLogueado;
             AdminModel modelo = new AdminModel();
+            ActionResult hayUsuario = null;
             if (usuario == null)
             {
-                Redirect("Login/Index");
+                hayUsuario = Redirect("/Login/Index");
             }
-            else if (usuario.Role == 1)
+            else
             {
-                modelo.UsuarioLogueado = usuario.Usuario;
+                if (usuario.Role == 1)
+                {
+                    modelo.UsuarioLogueado = usuario.Usuario;
+                    hayUsuario = View("Admin", modelo);
+                }
             }
-            return View("Admin", modelo);
+            return hayUsuario;
         }
     }
 }
