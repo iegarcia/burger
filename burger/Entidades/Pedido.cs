@@ -16,6 +16,9 @@ namespace burger.Entidades
         public char Depto { get; set; }
         public string Telefono { get; set; }
         public double Total { get; set; }
-        public DateTime FechaDePedido { get; set; } 
+        public DateTime FechaDePedido { get; set; }
+        public EstadoPedido.Estado EstadoPedido { get; set; }
+        
+        
     }
 }

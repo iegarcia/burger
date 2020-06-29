@@ -32,12 +32,16 @@
                         <tr>
                             <th>Productos</th>
                             <th>Cantidad</th>
+                            <th>Estado del pedido</th>
+                            <th>Confirmar Entrega</th>
                         </tr>
                         @foreach (var item in p.ProductosPedidos)
                         {
                             <tr>
                                 <td>@item.Producto.Nombre</td>
                                 <td>@item.Cantidad</td>
+                                <td>@p.Pedido.EstadoPedido</td>
+                                <td><a href="ConfirmarEntrega/@p.Pedido.Id"><i class="fas fa-check"></i></a></td>
                             </tr>
                         }
                     </table>

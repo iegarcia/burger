@@ -29,6 +29,12 @@ namespace burger.Controllers
             return validar;
         }
 
+        public ActionResult ConfirmarEntrega(int id)
+        {
+            RNPedidos.Confirmar(id);
+            return Redirect("/Pedidos/Index"); 
+        }
+
         public List<PedidoCompleto> ArmarPedidoCompleto(List<Pedido> listaPedidos)
         {
             List<PedidoCompleto> pedidosCompletos = new List<PedidoCompleto>();
