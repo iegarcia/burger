@@ -15,11 +15,12 @@ namespace burger.Controllers
         public ActionResult SeguirEnvio(int id)
         {
             Pedido p = RNPedidos.BuscarPedido(id);
+            p.EstadoPedido = EstadoPedido.Estado.EN_CAMINO;
             PedidoModel res = new PedidoModel
             {
+                PedidoId = p.Id,
                 EstadoDelPedido = p.EstadoPedido
             };
-            res.EstadoDelPedido = EstadoPedido.Estado.EN_CAMINO;
             return View("PedidoStatus", res);
         }
 
