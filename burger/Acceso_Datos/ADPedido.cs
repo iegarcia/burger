@@ -31,13 +31,25 @@ namespace burger.Acceso_Datos
 
             return ped;
         }
-
-        internal static EstadoPedido.Estado Success(Pedido ped)
+        public static int Contar()
         {
-            Pedido pedido;
+            int cant;
             using (Context context = new Context())
             {
-                pedido = context.Entry(ped).Property(p => p.EstadoPedido).CurrentValue = EstadoPedido.Estado.ENTREGADO;
+                cant = context.Pedidos.Count();
+            }
+            return cant;
+        }
+
+        public static Pedido Success(Pedido ped)
+        {
+            Pedido pedido;
+            EstadoPedido.Estado entregado;
+            using (Context context = new Context())
+            {
+                pedido = context.Pedidos.Where(p => p.Id == ped.Id).FirstOrDefault();
+                entregado = pedido.EstadoPedido = EstadoPedido.Estado.ENTREGADO;
+                context.SaveChanges();
             }
             return pedido;
         }

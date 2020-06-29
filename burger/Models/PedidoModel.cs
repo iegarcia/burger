@@ -5,7 +5,7 @@ namespace burger.Models
 {
     public class PedidoModel
     {
-        public int PedidoUser = 0;
+        public int PedidoId { get; set; }
         public List<ProductoPedido> ProductosPedidos { get; set; }
         public DeliveryModel DatosConsumidor { get; set; }
         public EstadoPedido.Estado EstadoDelPedido { get; set; }

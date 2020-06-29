@@ -34,6 +34,7 @@
                             <th>Cantidad</th>
                             <th>Estado del pedido</th>
                             <th>Confirmar Entrega</th>
+                            <th>Seguir Envio</th>
                         </tr>
                         @foreach (var item in p.ProductosPedidos)
                         {
@@ -41,7 +42,8 @@
                                 <td>@item.Producto.Nombre</td>
                                 <td>@item.Cantidad</td>
                                 <td>@p.Pedido.EstadoPedido</td>
-                                <td><a href="ConfirmarEntrega/@p.Pedido.Id"><i class="fas fa-check"></i></a></td>
+                                <td><a class="text-center" href="ConfirmarEntrega/@p.Pedido.Id"><i class="fas fa-check"></i></a></td>
+                                <td><a class="text-center" href="/PedidoStatus/SeguirEnvio/@p.Pedido.Id"><i class="far fa-eye"></i></a></td>
                             </tr>
                         }
                     </table>

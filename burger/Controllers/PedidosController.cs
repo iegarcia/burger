@@ -31,8 +31,8 @@ namespace burger.Controllers
 
         public ActionResult ConfirmarEntrega(int id)
         {
-            RNPedidos.Confirmar(id);
-            return Redirect("/Pedidos/Index"); 
+            var res = RNPedidos.Confirmar(id);
+            return RedirectToAction("Index", res);
         }
 
         public List<PedidoCompleto> ArmarPedidoCompleto(List<Pedido> listaPedidos)

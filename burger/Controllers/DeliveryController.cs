@@ -47,11 +47,12 @@ namespace burger.Controllers
             {
                 PedidoModel pedido = new PedidoModel
                 {
+                    PedidoId = RNPedidos.ContarPedidos(),
                     ProductosPedidos = ProductosCarrito,
                     DatosConsumidor = datosDeEnvio,
                     EstadoDelPedido = EstadoPedido.Estado.EN_PREPARACIÓN,
                 };
-                pedido.PedidoUser++;
+                pedido.PedidoId++;
                 result = ConfirmarPedido(pedido) ? View("Delivery", pedido) : View("Error");
             }
             return result;
@@ -72,7 +73,7 @@ namespace burger.Controllers
         {
             Pedido pedidoDB = new Pedido
             {
-                Id = pedidoModel.PedidoUser,
+                Id = pedidoModel.PedidoId,
                 UsuarioId = SessionHelper.UsuarioLogueado.Id,
                 Calle = pedidoModel.DatosConsumidor.Calle,
                 Numero = pedidoModel.DatosConsumidor.Numero,
