@@ -19,6 +19,7 @@
         <li>Precio por Unidad: $@pedido.Producto.Precio</li>
         <li>Total: $@pedido.Total</li>
     </ul>
+    <hr />
 }
 <h4 style=" background-color: lightcyan">Total a Pagar: $ @Model.Sumar(Model.ProductosPedidos)</h4>
 
@@ -36,7 +37,10 @@
 <div class="col mb-2">
     <div class="row">
         <div class="col-sm-12  col-md-6">
-            <a href="/Pedido/Reset" class="btn btn-block btn-success">Realizar Nuevo Pedido</a>
+            <a href="/Delivery/Reset" class="btn btn-block btn-success">Realizar Nuevo Pedido</a>
+        </div>
+        <div class="col-sm-12  col-md-6">
+            <a href="/PedidoStatus/SeguirEnvio/@Model.PedidoUser" class="btn btn-block btn-success">Seguir envio</a>
         </div>
     </div>
 </div>

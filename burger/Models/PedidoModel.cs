@@ -5,8 +5,10 @@ namespace burger.Models
 {
     public class PedidoModel
     {
+        public int PedidoUser = 0;
         public List<ProductoPedido> ProductosPedidos { get; set; }
         public DeliveryModel DatosConsumidor { get; set; }
+        public EstadoPedido.Estado EstadoDelPedido { get; set; }
 
 
         public double Sumar(List<ProductoPedido> ProductosPedidos)

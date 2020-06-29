@@ -23,24 +23,35 @@ namespace burger.Controllers
         // GET: Resumen
         public ActionResult Index()
         {
-            return View("Delivery");
+            ActionResult action;
+            if (ProductosCarrito == null)
+            {
+                action = Redirect("/Home/Index");
+            }
+            else
+            {
+                action = Redirect("/Carrito/Index");
+            }
+            return action;
         }
 
         public ActionResult CargarDatos(DeliveryModel datosDeEnvio)
         {
-            Boolean logged = EstaLogueado();
-            var pedido = new PedidoModel
-            {
-                ProductosPedidos = ProductosCarrito,
-                DatosConsumidor = datosDeEnvio
-            };
             ActionResult result;
+            Boolean logged = EstaLogueado();
             if (!logged)
             {
                 result = Redirect("/Login/Index");
             }
             else
             {
+                PedidoModel pedido = new PedidoModel
+                {
+                    ProductosPedidos = ProductosCarrito,
+                    DatosConsumidor = datosDeEnvio,
+                    EstadoDelPedido = EstadoPedido.Estado.EN_PREPARACIÓN,
+                };
+                pedido.PedidoUser++;
                 result = ConfirmarPedido(pedido) ? View("Delivery", pedido) : View("Error");
             }
             return result;
@@ -61,6 +72,7 @@ namespace burger.Controllers
         {
             Pedido pedidoDB = new Pedido
             {
+                Id = pedidoModel.PedidoUser,
                 UsuarioId = SessionHelper.UsuarioLogueado.Id,
                 Calle = pedidoModel.DatosConsumidor.Calle,
                 Numero = pedidoModel.DatosConsumidor.Numero,
@@ -68,7 +80,8 @@ namespace burger.Controllers
                 Depto = pedidoModel.DatosConsumidor.Depto,
                 Telefono = pedidoModel.DatosConsumidor.Telefono,
                 Total = pedidoModel.Sumar(ProductosCarrito),
-                FechaDePedido = DateTime.Now
+                FechaDePedido = DateTime.Now,
+                EstadoPedido = EstadoPedido.Estado.CONFIRMADO
             };
 
             int dbImpactPedido = 0;
