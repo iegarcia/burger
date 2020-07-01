@@ -29,5 +29,11 @@ namespace burger.Reglas
         {
             return ADPedido.Contar();
         }
+
+        public static Pedido Enviar(int id)
+        {
+            Pedido ped = BuscarPedido(id);
+            return ADPedido.Send(ped);
+        }
     }
 }

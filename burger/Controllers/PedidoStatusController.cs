@@ -1,10 +1,6 @@
 ﻿using burger.Entidades;
 using burger.Models;
 using burger.Reglas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace burger.Controllers
@@ -15,7 +11,6 @@ namespace burger.Controllers
         public ActionResult SeguirEnvio(int id)
         {
             Pedido p = RNPedidos.BuscarPedido(id);
-            p.EstadoPedido = EstadoPedido.Estado.EN_CAMINO;
             PedidoModel res = new PedidoModel
             {
                 PedidoId = p.Id,

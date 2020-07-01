@@ -29,6 +29,13 @@ namespace burger.Controllers
             return validar;
         }
 
+        public ActionResult EnviarPedido(int id)
+        {
+            var p = RNPedidos.Enviar(id);
+            return RedirectToAction("Index", p);
+        }
+
+
         public ActionResult ConfirmarEntrega(int id)
         {
             var res = RNPedidos.Confirmar(id);
