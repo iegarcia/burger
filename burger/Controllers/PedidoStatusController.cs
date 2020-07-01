@@ -12,20 +12,29 @@ namespace burger.Controllers
         public ActionResult SeguirEnvio(int id)
         {
             Pedido p = RNPedidos.BuscarPedido(id);
-            PedidoModel pEncontrado = new PedidoModel
+            ActionResult action;
+            if (p == null)
             {
-                PedidoId = p.Id,
-                DatosConsumidor = new DeliveryModel
+                action = Redirect("/Home/Index");
+            }
+            else
+            {
+                PedidoModel pEncontrado = new PedidoModel
                 {
-                    Calle = p.Calle,
-                    Numero = p.Numero,
-                    Piso = p.Piso,
-                    Depto = p.Depto,
-                    Telefono = p.Telefono,
-                },
-                EstadoDelPedido = p.EstadoPedido
-            };
-            return View("PedidoStatus", pEncontrado);
+                    PedidoId = p.Id,
+                    DatosConsumidor = new DeliveryModel
+                    {
+                        Calle = p.Calle,
+                        Numero = p.Numero,
+                        Piso = p.Piso,
+                        Depto = p.Depto,
+                        Telefono = p.Telefono,
+                    },
+                    EstadoDelPedido = p.EstadoPedido
+                };
+                action = View("PedidoStatus", pEncontrado);
+            }
+            return action;
         }
 
     }
