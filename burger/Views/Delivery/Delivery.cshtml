@@ -13,6 +13,7 @@
 
 @foreach (var pedido in Model.ProductosPedidos)
 {
+    <p>Su Nro de pedido es @Model.PedidoId <strong>(Con este numero usted podra seguir el estado de su pedido)</strong></p>
     <ul>
         <li>Hamburguesa: @pedido.Producto.Nombre</li>
         <li>Cantidad: @pedido.Cantidad</li>
