@@ -16,6 +16,10 @@ namespace burger.Controllers
             {
                 validar = Redirect("/Login/Index");
             }
+            else if (usuario.Role == 0)
+            {
+                validar = Redirect("/Home");
+            }
             else
             {
                 var listaPedidos = RNPedidos.ListarPedidos();

@@ -268,6 +268,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\PedidoStatusController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SessionHelper.cs" />
     <Compile Include="Entidades\EstadoPedido.cs" />
     <Compile Include="Entidades\Pedido.cs" />
@@ -310,6 +311,7 @@
     <Content Include="Content\images\burger02.jpg" />
     <Content Include="Content\images\burger03.jpg" />
     <Content Include="Content\images\burger04.jpg" />
+    <Content Include="Content\images\users.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -473,6 +475,7 @@
     <Content Include="Views\Pedidos\Pedidos.cshtml" />
     <Content Include="Views\Usuarios\Usuarios.cshtml" />
     <Content Include="Views\PedidoStatus\PedidoStatus.cshtml" />
+    <Content Include="Views\Product\Productos.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

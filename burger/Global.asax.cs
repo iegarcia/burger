@@ -1,4 +1,3 @@
-using burger.Acceso_Datos;
 using burger.BurgerDatos;
 using burger.Entidades;
 using System.Linq;
@@ -21,10 +20,18 @@ namespace burger
 
             User user1 = new User
             {
+                Usuario = "admin",
+                Email = "admin@test.com",
+                Password = "1234",
+                Role = 1
+            };
+
+            User user2 = new User
+            {
                 Usuario = "ignacio",
                 Email = "ignacio@test.com",
                 Password = "1234",
-                Role = 1
+                Role = 0
             };
 
             Producto p1 = new Producto
@@ -65,18 +72,22 @@ namespace burger
                 Descripcion = "El perfecto mix de la cocina vegana combinado con los mejores elementos de la naturaleza!"
             };
 
-            using (Context context = new Context()) {
+            using (Context context = new Context())
+            {
 
-                if (context.Productos.Count() == 0) {
+                if (context.Productos.Count() == 0)
+                {
                     context.Productos.Add(p1);
                     context.Productos.Add(p2);
-                    context.Productos.Add(p3); 
+                    context.Productos.Add(p3);
                     context.Productos.Add(p4);
                     context.SaveChanges();
                 }
 
-                if (context.Usuarios.ToList().Count() == 0) {
+                if (context.Usuarios.ToList().Count() == 0)
+                {
                     context.Usuarios.Add(user1);
+                    context.Usuarios.Add(user2);
                     context.SaveChanges();
                 }
 
@@ -84,7 +95,7 @@ namespace burger
 
 
 
-             
+
 
         }
     }

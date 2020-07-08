@@ -1,11 +1,17 @@
 ﻿using burger.Acceso_Datos;
 using burger.Entidades;
 using System;
+using System.Collections.Generic;
 
 namespace burger.Reglas
 {
     public class RNProduct
     {
+        public static List<Producto> ListarProductos() //Metodo exclusivo para el admin...
+        {
+            return ADProducto.Listar();
+        }
+
         public static Producto BuscarProducto(int idProducto)
         {
             return ADProducto.Buscar(idProducto);

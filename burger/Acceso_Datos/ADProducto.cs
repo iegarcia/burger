@@ -20,5 +20,17 @@ namespace burger.Acceso_Datos
             }
             return producto;
         }
+
+        public static List<Producto> Listar()
+        {
+            List<Producto> products = new List<Producto>();
+
+            using (Context context = new Context())
+            {
+                products = context.Productos.ToList();
+            }
+
+            return products;
+        }
     }
 }
