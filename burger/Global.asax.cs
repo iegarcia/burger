@@ -34,6 +34,22 @@ namespace burger
                 Role = 0
             };
 
+            User user3 = new User
+            {
+                Usuario = "Fulanito",
+                Email = "fulanito@test.com",
+                Password = "1234",
+                Role = 0
+            };
+
+            User user4 = new User
+            {
+                Usuario = "usuario",
+                Email = "usuario@test.com",
+                Password = "1234",
+                Role = 0
+            };
+
             Producto p1 = new Producto
             {
                 Id = 1,
@@ -60,7 +76,7 @@ namespace burger
                 Nombre = "Classic Burger",
                 Precio = 100,
                 Imagen = "burger03.jpg",
-                Descripcion = "Si estas hecho a la antigua y prefieres los clasicos. Tenemos una hamburguesa que va con vos."
+                Descripcion = "Si estas hecho a la antigua y prefieris los clasicos. Tenemos una hamburguesa que va con vos."
             };
 
             Producto p4 = new Producto
@@ -88,6 +104,8 @@ namespace burger
                 {
                     context.Usuarios.Add(user1);
                     context.Usuarios.Add(user2);
+                    context.Usuarios.Add(user3);
+                    context.Usuarios.Add(user4);
                     context.SaveChanges();
                 }
 

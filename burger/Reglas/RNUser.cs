@@ -30,5 +30,15 @@ namespace burger.Reglas
 
             return ADUser.Agregar(user);
         }
+
+        public static User Editar(User user)
+        {
+            return ADUser.Edit(user);
+        }
+
+        public static bool Eliminar(int id)
+        {
+            return ADUser.Delete(id);
+        }
     }
 }

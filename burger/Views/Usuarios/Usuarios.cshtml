@@ -14,7 +14,6 @@
     </p>
 </div>
 <hr />
-<a class="btn-info" href="#">Agregar</a>
 <table class="customers">
     <tr>
         <th>Id</th>
@@ -33,12 +32,33 @@
             <td>@usuario.Role</td>
             <td>@usuario.Email</td>
             <td>
-                <a href="#@usuario.Id"><i class="fas fa-pen"></i></a>&nbsp;
-                <a class="text-danger" href="#@usuario.Id"><i class="fas fa-minus-circle"></i></a>
+                <a href="/Admin/Detalle/@usuario.Id"><i class="fas fa-pen"></i></a>&nbsp;
+                <a class="text-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-minus-circle"></i></a>
             </td>
         </tr>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro que desea eliminar esto?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <a href="/Admin/Delete/@usuario.Id" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 </table>
+
 <br />
 <a class="btn btn-info" href="/Admin">Volver Atras</a>
 
+<!-- Modal -->
