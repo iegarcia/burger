@@ -15,6 +15,10 @@ namespace burger.Controllers
             {
                 hayUsuario = Redirect("/Login/Index");
             }
+            else if (usuario.Role == 0)
+            {
+                hayUsuario = Redirect("/Home/Index");
+            }
             else
             {
                 if (usuario.Role == 1)

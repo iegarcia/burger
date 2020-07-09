@@ -4,30 +4,29 @@ using System.Web.Mvc;
 
 namespace burger.Controllers
 {
-    public class UsuariosController : Controller
+    public class ProductController : Controller
     {
+        // GET: Product
         public ActionResult Index()
         {
-            var usuario = SessionHelper.UsuarioLogueado;
-            var users = RNUser.ListarUsuarios();
+            var user = SessionHelper.UsuarioLogueado;
+            var prod = RNProduct.ListarProductos();
             ActionResult validar;
-            if (usuario == null)
+            if (user == null)
             {
                 validar = Redirect("/Login/Index");
             }
-            else if (usuario.Role == 0)
+            else if (user.Role == 0)
             {
                 validar = Redirect("/Home/Index");
             }
             else
             {
-                UserModel modelo = new UserModel
+                ProductosModel modelo = new ProductosModel
                 {
-                    ListaUsuarios = users,
-                    UsuarioLogueado = usuario.Usuario
-
+                    Productos = prod,
                 };
-                validar = View("Usuarios", modelo);
+                validar = View("Productos", modelo);
             }
             return validar;
         }

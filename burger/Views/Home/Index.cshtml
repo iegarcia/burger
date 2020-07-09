@@ -22,9 +22,21 @@
                     <p class="card-text">$@producto.Precio</p>
                     <a href="/Carrito/Agregar/@producto.Id" class="btn btn-primary">Pedir</a>
                 </div>
-            </div>    
-            }
+            </div>
         }
+    }
 </div>
+<hr />
+<br />
+<h4>Seguir estado del envio</h4>
+<p>Introduce aqui tu numero de pedido va comprobar su estado actual</p>
+<form class="register-form" action="/PedidoStatus/SeguirEnvio/id" method="post">
+    <div class="row">
+        <div class="col-sm-3 form-group">
+            <input type="text" name="id" class="form-control" placeholder="Nro Pedido" required>
+        </div>
+    </div>
+    <button type="submit" name="button" class="btn btn-success float-left">Seguir Envio</button>
+</form>
 
 

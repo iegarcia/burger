@@ -16,6 +16,10 @@ namespace burger.Controllers
             {
                 validar = Redirect("/Login/Index");
             }
+            else if (usuario.Role == 0)
+            {
+                validar = Redirect("/Home");
+            }
             else
             {
                 var listaPedidos = RNPedidos.ListarPedidos();
@@ -28,6 +32,13 @@ namespace burger.Controllers
             }
             return validar;
         }
+
+        public ActionResult EnviarPedido(int id)
+        {
+            var p = RNPedidos.Enviar(id);
+            return RedirectToAction("Index", p);
+        }
+
 
         public ActionResult ConfirmarEntrega(int id)
         {

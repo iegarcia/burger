@@ -6,30 +6,38 @@
 }
 
 <div>
-    <h2>Listar Usuarios</h2>
+    <h2>Usuarios</h2>
     <h4>Hola @Model.UsuarioLogueado !</h4>
     <p>
-        En esta seccion se muestran los usuarios registrados. Si estas aca significa que sos un
-        <strong>usuario administrador</strong>
+        En esta seccion se muestran los usuarios registrados. Otorgue permisos, elimine inactivos, autorice nuevos.<br />
+        <em>0 = Usuario normal / 1 = Administrador</em>
     </p>
 </div>
 <hr />
+<a class="btn-info" href="#">Agregar</a>
 <table class="customers">
     <tr>
         <th>Id</th>
         <th>Nombre</th>
         <th>Usuario</th>
+        <th>Permisos</th>
         <th>Email</th>
+        <th></th>
     </tr>
-   @foreach (var usuario in Model.ListaUsuarios)
-   {
-       <tr>
-           <td>@usuario.Id</td>
-           <td>@usuario.Nombre</td>
-           <td>@usuario.Usuario</td>
-           <td>@usuario.Email</td>
-       </tr>
-   }
+    @foreach (var usuario in Model.ListaUsuarios)
+    {
+        <tr>
+            <td>@usuario.Id</td>
+            <td>@usuario.Nombre</td>
+            <td>@usuario.Usuario</td>
+            <td>@usuario.Role</td>
+            <td>@usuario.Email</td>
+            <td>
+                <a href="#@usuario.Id"><i class="fas fa-pen"></i></a>&nbsp;
+                <a class="text-danger" href="#@usuario.Id"><i class="fas fa-minus-circle"></i></a>
+            </td>
+        </tr>
+    }
 </table>
 <br />
 <a class="btn btn-info" href="/Admin">Volver Atras</a>

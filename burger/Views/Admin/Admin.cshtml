@@ -6,16 +6,47 @@
 }
 
 <div>
-    <h2>Listar Usuarios</h2>
+    <h2 class="text-center">Sector Administrativo</h2>
     <h4>Hola @Model.UsuarioLogueado !</h4>
     <p>
-        Si estas aca significa que sos un <strong>usuario administrador</strong>
+        <strong>Esta seccion esta presente solo para el personal administrativo autorizado</strong>. <br />
+        Si estas visualizando esto correctamente significa que sos un <strong>usuario administrador</strong>.
     </p>
 </div>
 <hr />
-<a class="btn btn-info" href="Usuarios/Index">Ver lista de Usuarios</a>
-<a class="btn btn-info" href="/Pedidos/Index">Ver lista de Pedidos</a>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="~/Content/images/users.png" class="card-img-top" alt="usuarios">
+            <div class="card-body">
+                <h5 class="card-title">Usuarios</h5>
+                <p class="card-text">Autorización, permisos, baja, etc.</p>
+                <a href="Usuarios/Index" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="http://vgb.gov.ar/municipalidad/wp-content/uploads/sites/2/2018/08/Encuestadores.jpg" class="card-img-top" alt="pedidos">
+            <div class="card-body">
+                <h5 class="card-title">Pedidos</h5>
+                <p class="card-text">Seguimiento, confirmación, detalle, etc.</p>
+                <a href="/Pedidos/Index" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="https://cdn.pixabay.com/photo/2017/11/26/00/09/vegetables-2977888_960_720.jpg" class="card-img-top" alt="products">
+            <div class="card-body">
+                <h5 class="card-title">Productos</h5>
+                <p class="card-text">En esta seccion se veran los productos disponibles</p>
+                <a href="Product/Index" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+</div>
 <br />
 <br />
-<a class="btn btn-info" href="/Home/Index">Ir al inicio</a>
+<a class="btn btn-success" href="/Home/Index">Ir al inicio</a>
 

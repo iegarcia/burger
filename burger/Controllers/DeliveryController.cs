@@ -48,14 +48,24 @@ namespace burger.Controllers
                 PedidoModel pedido = new PedidoModel
                 {
                     PedidoId = RNPedidos.ContarPedidos(),
-                    ProductosPedidos = ProductosCarrito,
+                    ProductosPedidos = new List<ProductoPedido>(ProductosCarrito),
                     DatosConsumidor = datosDeEnvio,
                     EstadoDelPedido = EstadoPedido.Estado.EN_PREPARACIÓN,
                 };
                 pedido.PedidoId++;
-                result = ConfirmarPedido(pedido) ? View("Delivery", pedido) : View("Error");
+                result = PrepararEnvio(pedido) ? View("Delivery", pedido) : View("Error");
             }
             return result;
+        }
+
+        public bool PrepararEnvio(PedidoModel pedido)
+        {
+            bool res = ConfirmarPedido(pedido);
+            if (res)
+            {
+                SessionHelper.Reset();
+            }
+            return res;
         }
 
         public bool EstaLogueado()
@@ -63,11 +73,10 @@ namespace burger.Controllers
             return SessionHelper.UsuarioLogueado != null;
         }
 
-        public ActionResult Reset()
-        {
-            SessionHelper.Reset();
-            return Redirect("/Home/Index");
-        }
+        //public ActionResult Reset()
+        //{
+        //    return Redirect("/Home/Index");
+        //}
 
         private Boolean ConfirmarPedido(PedidoModel pedidoModel)
         {

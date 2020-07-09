@@ -2,10 +2,19 @@
 
 @{
     ViewBag.Title = "PedidoStatus";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
 <div class="home-section">
-    <h2 class="home-title">Estado del Pedido</h2>
+    <h2 class="home-title">Seguimiento del pedido</h2>
     <hr />
-    <h3>El estado actual de tu pedido es @Model.EstadoDelPedido</h3>
+    <h3>Pedido Nro: @Model.PedidoId</h3>
+    <h4>El mismo debera ser entregado en:</h4>
+    <ul>
+        <li>@Model.DatosConsumidor.Calle al @Model.DatosConsumidor.Numero (Piso: @Model.DatosConsumidor.Piso / Dto: @Model.DatosConsumidor.Depto)</li>
+        <li>Telefono de contacto: @Model.DatosConsumidor.Telefono</li>
+    </ul>
+    <h3 class="alert-info text-center">El estado actual de tu pedido es @Model.EstadoDelPedido</h3>
+    <br />
+    <a class="btn btn-success" href="/Home/Index">Volver al inicio</a>
 </div>

@@ -41,6 +41,19 @@ namespace burger.Acceso_Datos
             return cant;
         }
 
+        public static Pedido Send(Pedido ped)
+        {
+            Pedido pedido;
+            EstadoPedido.Estado nuevoEstado;
+            using (Context context = new Context())
+            {
+                pedido = context.Pedidos.Where(p => p.Id == ped.Id).FirstOrDefault();
+                nuevoEstado = pedido.EstadoPedido = EstadoPedido.Estado.EN_CAMINO;
+                context.SaveChanges();
+            }
+            return pedido;
+        }
+
         public static Pedido Success(Pedido ped)
         {
             Pedido pedido;

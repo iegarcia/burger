@@ -6,10 +6,9 @@
 }
 
 <div>
-    <h2>Listado de pedidos</h2>
+    <h2>Pedidos</h2>
     <p>
-        En esta seccion se muestran los pedidos realizados. Si estas viendo esto significa que sos un
-        <strong>usuario administrador</strong>
+        En esta seccion se muestran los pedidos realizados. Aqui podras despachar el pedido, darle un seguimiento y confirmar la entrega en caso de arrivo.
     </p>
 </div>
 <hr />
@@ -22,7 +21,6 @@
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#Pedido-@p.Pedido.Id" aria-expanded="true" aria-controls="Pedido-@p.Pedido.Id">
                         Consumidor: @p.Usuario.Usuario (@p.Pedido.Calle @p.Pedido.Numero Piso: @p.Pedido.Piso | Depto: @p.Pedido.Depto)
                     </button>
-                    @*<a href="#">Estado del pedido</a>*@
                 </h2>
             </div>
 
@@ -33,8 +31,7 @@
                             <th>Productos</th>
                             <th>Cantidad</th>
                             <th>Estado del pedido</th>
-                            <th>Confirmar Entrega</th>
-                            <th>Seguir Envio</th>
+                            <th></th>
                         </tr>
                         @foreach (var item in p.ProductosPedidos)
                         {
@@ -42,8 +39,13 @@
                                 <td>@item.Producto.Nombre</td>
                                 <td>@item.Cantidad</td>
                                 <td>@p.Pedido.EstadoPedido</td>
-                                <td><a class="text-center" href="ConfirmarEntrega/@p.Pedido.Id"><i class="fas fa-check"></i></a></td>
-                                <td><a class="text-center" href="/PedidoStatus/SeguirEnvio/@p.Pedido.Id"><i class="far fa-eye"></i></a></td>
+                                <td>
+                                    <a class="text-center" href="EnviarPedido/@p.Pedido.Id"><i class="fas fa-truck"></i> Enviar</a>
+                                    <br />
+                                    <a class="text-center" href="/PedidoStatus/SeguirEnvio/@p.Pedido.Id"><i class="far fa-eye"></i> Seguir Envio</a>
+                                    <br />
+                                    <a class="text-center" href="ConfirmarEntrega/@p.Pedido.Id"><i class="fas fa-check"></i> Confirmar Entrega</a>
+                                </td>
                             </tr>
                         }
                     </table>

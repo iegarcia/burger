@@ -1,10 +1,8 @@
 ﻿using burger.BurgerDatos;
 using burger.Entidades;
-using burger.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace burger.Acceso_Datos
 {
@@ -44,7 +42,7 @@ namespace burger.Acceso_Datos
             }
 
             return user;
-        } 
+        }
         public static User BuscarPorID(int usuarioId)
         {
             User user;
