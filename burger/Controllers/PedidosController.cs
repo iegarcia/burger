@@ -16,7 +16,7 @@ namespace burger.Controllers
             {
                 validar = Redirect("/Login/Index");
             }
-            else if (usuario.Role == 0)
+            else if (SessionHelper.ComprobarPersmisos(usuario))
             {
                 validar = Redirect("/Home");
             }

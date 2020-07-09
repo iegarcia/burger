@@ -20,7 +20,7 @@ namespace burger.Controllers
 
             SessionHelper.UsuarioLogueado = user;
 
-            if (user != null && user.Role == 1)
+            if (user != null && SessionHelper.ComprobarPersmisos(user))
             {
                 return RedirectToAction("Index", "Admin");
             }

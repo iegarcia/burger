@@ -43,6 +43,36 @@ namespace burger.Acceso_Datos
 
             return user;
         }
+
+        public static bool Delete(int id)
+        {
+            User user;
+            int result = 0;
+            using (Context context = new Context())
+            {
+                user = context.Usuarios.Where(u => u.Id == id).FirstOrDefault();
+                context.Usuarios.Remove(user);
+                result = context.SaveChanges();
+            }
+            return result > 0;
+        }
+
+        public static User Edit(User user)
+        {
+            User usuario;
+            using (Context context = new Context())
+            {
+                usuario = context.Usuarios.Where(u => u.Id == user.Id).FirstOrDefault();
+                usuario.Nombre = user.Nombre;
+                usuario.Usuario = user.Usuario;
+                usuario.Email = user.Email;
+                usuario.Password = user.Password;
+                usuario.Role = user.Role;
+                context.SaveChanges();
+            }
+            return usuario;
+        }
+
         public static User BuscarPorID(int usuarioId)
         {
             User user;

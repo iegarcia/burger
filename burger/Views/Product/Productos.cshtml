@@ -11,7 +11,6 @@
     </p>
 </div>
 <hr />
-<a class="btn-info" href="#">Agregar</a>
 <table class="customers">
     <tr>
         <th>Id</th>
@@ -28,8 +27,8 @@
             <td>@producto.Descripcion</td>
             <td>@producto.Precio</td>
             <td>
-                <a href="#@producto.Id"><i class="fas fa-pen"></i></a>&nbsp;
-                <a class="text-danger" href="#@producto.Id"><i class="fas fa-minus-circle"></i></a>
+                <a href="Admin/Edit/@producto.Id"><i class="fas fa-pen"></i></a>&nbsp;
+                <a class="text-danger" href="Admin/Delete/@producto.Id"><i class="fas fa-minus-circle"></i></a>
             </td>
         </tr>
     }

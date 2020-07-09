@@ -35,6 +35,11 @@ namespace burger.Controllers
             }
         }
 
+        public static bool ComprobarPersmisos(User user)
+        {
+            return user.Role == 1;
+        }
+
         public static void Reset()
         {
             ProductosCarrito.Clear();

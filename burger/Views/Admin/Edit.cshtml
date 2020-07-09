@@ -1,0 +1,43 @@
+﻿@model burger.Entidades.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>Editar Usuario</h2>
+
+<div class="row">
+    <form class="register-form" action="/Admin/Edit/@Model.Id" method="post">
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Nombre</label>
+                <input type="text" name="Nombre" class="form-control" value="@Model.Nombre">
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Usuario</label>
+                <input type="text" name="Usuario" class="form-control" value="@Model.Usuario">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Email</label>
+                <input type="text" name="Email" class="form-control" value="@Model.Email">
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Password</label>
+                <input type="text" name="Password" class="form-control" value="@Model.Password">
+            </div>
+            <div class="col-sm-2">
+                <label>Role</label>
+                <input type="text" name="Role" class="form-control" value="@Model.Role">
+            </div>
+        </div>
+        <br />
+        <button type="submit" name="button" class="btn btn-success float-left">Guardar Cambios</button>
+    </form>
+    <div class="col-md-6">
+        <a href="/Usuarios/Index" class="btn btn-info">Atras</a>
+    </div>
+
+</div>
