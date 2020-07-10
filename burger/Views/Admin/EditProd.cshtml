@@ -1,0 +1,39 @@
+﻿@model burger.Entidades.Producto
+
+@{
+    ViewBag.Title = "EditProd";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>Editar Producto</h2>
+
+<div class="row">
+    <form class="register-form" action="/Product/Edit/@Model.Id" method="post">
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Nombre</label>
+                <input type="text" name="Nombre" class="form-control" value="@Model.Nombre">
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Precio</label>
+                <input type="text" name="Precio" class="form-control" value="@Model.Precio">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Descripcion</label>
+                <input type="text" name="Descripcion" class="form-control" value="@Model.Descripcion">
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Imagen</label>
+                <input type="text" name="Imagen" class="form-control" value="@Model.Imagen">
+            </div>
+        </div>
+        <br />
+        <button type="submit" name="button" class="btn btn-success float-left">Guardar Cambios</button>
+    </form>
+    <div class="col-md-6">
+        <a href="/Productos/Index" class="btn btn-info">Atras</a>
+    </div>
+
+</div>

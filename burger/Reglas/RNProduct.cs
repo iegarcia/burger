@@ -16,5 +16,15 @@ namespace burger.Reglas
         {
             return ADProducto.Buscar(idProducto);
         }
+
+        public static Producto Editar(Producto prod)
+        {
+            return ADProducto.Editar(prod);
+        }
+
+        public static bool Eliminar(int id)
+        {
+            return ADProducto.Eliminar(id);
+        }
     }
 }
