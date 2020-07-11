@@ -31,15 +31,15 @@ namespace burger.Controllers
 
         public ActionResult EnviarPedido(int id)
         {
-            var p = RNPedidos.Enviar(id);
-            return RedirectToAction("Index", p);
+            RNPedidos.Enviar(id);
+            return Redirect("/Pedidos/Index");
         }
 
 
         public ActionResult ConfirmarEntrega(int id)
         {
-            var res = RNPedidos.Confirmar(id);
-            return RedirectToAction("Index", res);
+            RNPedidos.Confirmar(id);
+            return Redirect("/Pedidos/Index");
         }
 
         public List<PedidoCompleto> ArmarPedidoCompleto(List<Pedido> listaPedidos)

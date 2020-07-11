@@ -44,11 +44,11 @@ namespace burger.Acceso_Datos
         public static Pedido Send(Pedido ped)
         {
             Pedido pedido;
-            EstadoPedido.Estado nuevoEstado;
+            //EstadoPedido.Estado nuevoEstado;
             using (Context context = new Context())
             {
                 pedido = context.Pedidos.Where(p => p.Id == ped.Id).FirstOrDefault();
-                nuevoEstado = pedido.EstadoPedido = EstadoPedido.Estado.EN_CAMINO;
+                pedido.EstadoPedido = EstadoPedido.Estado.EN_CAMINO;
                 context.SaveChanges();
             }
             return pedido;
@@ -57,11 +57,11 @@ namespace burger.Acceso_Datos
         public static Pedido Success(Pedido ped)
         {
             Pedido pedido;
-            EstadoPedido.Estado entregado;
+            //EstadoPedido.Estado entregado;
             using (Context context = new Context())
             {
                 pedido = context.Pedidos.Where(p => p.Id == ped.Id).FirstOrDefault();
-                entregado = pedido.EstadoPedido = EstadoPedido.Estado.ENTREGADO;
+                pedido.EstadoPedido = EstadoPedido.Estado.ENTREGADO;
                 context.SaveChanges();
             }
             return pedido;

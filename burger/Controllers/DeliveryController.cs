@@ -73,11 +73,6 @@ namespace burger.Controllers
             return SessionHelper.UsuarioLogueado != null;
         }
 
-        //public ActionResult Reset()
-        //{
-        //    return Redirect("/Home/Index");
-        //}
-
         private Boolean ConfirmarPedido(PedidoModel pedidoModel)
         {
             Pedido pedidoDB = new Pedido

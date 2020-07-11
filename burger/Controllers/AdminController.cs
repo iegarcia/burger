@@ -12,16 +12,12 @@ namespace burger.Controllers
         {
             var usuario = SessionHelper.UsuarioLogueado;
             AdminModel modelo = new AdminModel();
-            ActionResult hayUsuario = null;
+            ActionResult hayUsuario = Redirect("/Home/Index");
             if (usuario == null)
             {
                 hayUsuario = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
-            {
-                hayUsuario = Redirect("/Home/Index");
-            }
-            else
             {
                 if (SessionHelper.ComprobarPersmisos(usuario))
                 {
