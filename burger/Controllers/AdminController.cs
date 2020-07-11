@@ -2,16 +2,21 @@
 using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
+using System;
 
 namespace burger.Controllers
 {
     public class AdminController : Controller
     {
+        // Default fecha de hoy
+        public DateTime fechaFin = DateTime.Today;
+        // Default fecha de hace una semana
+        public DateTime fechaInicio = DateTime.Today.AddDays(-(int) DateTime.Today.DayOfWeek);
+
         // GET: Admin
         public ActionResult Index()
         {
             var usuario = SessionHelper.UsuarioLogueado;
-            AdminModel modelo = new AdminModel();
             ActionResult hayUsuario = Redirect("/Home/Index");
             if (usuario == null)
             {
@@ -19,7 +24,13 @@ namespace burger.Controllers
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
-                modelo.UsuarioLogueado = usuario.Usuario;
+
+                AdminModel modelo = new AdminModel() {
+                    UsuarioLogueado = usuario.Usuario,
+                    pedidosUltimaSemana = RNPedidos.ContarPedidos(),
+                    productosMasVendidos = RNProduct.ProductosMasVendidos(fechaInicio, fechaFin)
+            };
+
                 hayUsuario = View("Admin", modelo);
             }
 

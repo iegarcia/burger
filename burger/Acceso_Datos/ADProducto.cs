@@ -1,5 +1,7 @@
 ﻿using burger.BurgerDatos;
 using burger.Entidades;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,7 +47,6 @@ namespace burger.Acceso_Datos
                 prod = context.Productos.Where(
                     producto => producto.Nombre == nombre
                     ).FirstOrDefault();
-                //prod = context.Productos.Find(nombre);
             }
             if(prod != null)
             {
@@ -91,17 +92,31 @@ namespace burger.Acceso_Datos
             return dbImpact > 0;
         }
 
-        //    public static bool Existe(string usuario)
-        //    {
-        //        bool existe = false;
-        //        using (Context context = new Context())
-        //        {
-        //            existe = context.Usuarios.Any(
-        //                user => user.Usuario == usuario);
-        //        }
+        public static int[] BuscarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin) {
 
-        //        return existe;
-        //    }
-        //}
+            int[] productos;
+
+            using (Context context = new Context())
+            {
+                productos = new int[context.Productos.Count()];
+
+                // Obtenemos los ids de pedidos solicitados (que esten entre las fechas que nos mandaron)
+                List<int> idsDePedido = context.Pedidos
+                    .Where(p => p.FechaDePedido >= fechaInicio && p.FechaDePedido <= fechaFin)
+                    .Select(p => p.Id).ToList();
+
+                // Obtenemos la lista de productos correspondientes a los pedidos
+                List<ProductosPorPedido> productosFiltrados = context.ProductosPorPedido.Where(p => idsDePedido.Contains(p.PedidoId)).ToList();
+
+                // Contamos la cantidad de productos
+                foreach (ProductosPorPedido productoPorPedido in productosFiltrados)
+                {
+                    int posicionVector = productoPorPedido.Id - 1;
+                    productos[posicionVector] += productoPorPedido.Cantidad;
+                }
+            }
+
+            return productos;
+        } 
     }
 }

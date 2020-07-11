@@ -1,5 +1,6 @@
 ﻿using burger.Acceso_Datos;
 using burger.Entidades;
+using System;
 using System.Collections.Generic;
 
 namespace burger.Reglas
@@ -34,6 +35,12 @@ namespace burger.Reglas
         public static bool BuscarProductoPorNombre(string nombre)
         {
             return ADProducto.BuscarProducto(nombre);
+        }
+
+        // Devuelve la cant de productos vendidos ordenados por id
+        public static int[] ProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return ADProducto.BuscarProductosMasVendidos(fechaInicio,fechaFin);
         }
     }
 }

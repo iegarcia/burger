@@ -91,11 +91,9 @@ namespace burger.Controllers
 
         private void GuardarImagen(HttpPostedFileBase archivo)
         {
-            string fileName = archivo.FileName;
             string filePath = Server.MapPath("~/Content/images/");
             if (Directory.Exists(filePath)) {
-                string root = filePath + fileName;
-                archivo.SaveAs(root);
+                archivo.SaveAs(filePath + archivo.FileName);
             }
         }
 
