@@ -1,7 +1,7 @@
-﻿using burger.Models;
+﻿using burger.Entidades;
+using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
-using burger.Entidades;
 
 namespace burger.Controllers
 {
@@ -18,7 +18,7 @@ namespace burger.Controllers
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(user))
-            { 
+            {
                 ProductosModel modelo = new ProductosModel
                 {
                     Productos = prod,
@@ -62,26 +62,23 @@ namespace burger.Controllers
 
         public ActionResult Add(Producto prod)
         {
-            var Existe = RNProduct.BuscarProducto(prod.Id);
+            var existe = RNProduct.BuscarProductoPorNombre(prod.Nombre);
             ActionResult response = View("CrearProducto");
-
-            if (Existe != null)
+            if (existe)
             {
                 RNProduct.Agregar(prod);
-                response = View("/Product/Index");
-
+                response = Redirect("/Product/Index");
             }
             return response;
         }
 
         public ActionResult CrearProd()
         {
-            ActionResult res;
+            ActionResult res = Redirect("/Home/Index");
             var usuario = SessionHelper.UsuarioLogueado;
-            res = Redirect("/Home/Index");
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
-                  res = View("CrearProducto");
+                res = View("CrearProducto");
             }
             return res;
         }

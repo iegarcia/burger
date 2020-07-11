@@ -19,12 +19,10 @@ namespace burger.Controllers
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
-            
+                modelo.UsuarioLogueado = usuario.Usuario;
+                hayUsuario = View("Admin", modelo);
+            }
 
-                    modelo.UsuarioLogueado = usuario.Usuario;
-                    hayUsuario = View("Admin", modelo);
-                }
-            
             return hayUsuario;
         }
         public ActionResult Edit(User user)

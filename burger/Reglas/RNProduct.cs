@@ -1,6 +1,5 @@
 ﻿using burger.Acceso_Datos;
 using burger.Entidades;
-using System;
 using System.Collections.Generic;
 
 namespace burger.Reglas
@@ -29,8 +28,12 @@ namespace burger.Reglas
 
         public static bool Agregar(Producto prod)
         {
-           return ADProducto.Agregar(prod);
+            return ADProducto.Agregar(prod);
         }
 
+        public static bool BuscarProductoPorNombre(string nombre)
+        {
+            return ADProducto.BuscarProducto(nombre);
+        }
     }
 }

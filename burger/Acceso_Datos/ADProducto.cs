@@ -36,7 +36,17 @@ namespace burger.Acceso_Datos
             return producto;
         }
 
-        public static bool Eliminar (int id)
+        public static bool BuscarProducto(string nombre)
+        {
+            Producto prod;
+            using (Context context = new Context())
+            {
+                prod = context.Productos.Find(nombre);
+            }
+            return prod != null;
+        }
+
+        public static bool Eliminar(int id)
         {
             Producto prod;
             int result = 0;
@@ -72,5 +82,18 @@ namespace burger.Acceso_Datos
 
             return dbImpact > 0;
         }
+
+        //    public static bool Existe(string usuario)
+        //    {
+        //        bool existe = false;
+        //        using (Context context = new Context())
+        //        {
+        //            existe = context.Usuarios.Any(
+        //                user => user.Usuario == usuario);
+        //        }
+
+        //        return existe;
+        //    }
+        //}
     }
 }
