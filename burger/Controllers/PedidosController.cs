@@ -11,16 +11,12 @@ namespace burger.Controllers
         public ActionResult Index()
         {
             var usuario = SessionHelper.UsuarioLogueado;
-            ActionResult validar;
+            ActionResult validar = Redirect("/Home/Index");
             if (usuario == null)
             {
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
-            {
-                validar = Redirect("/Home");
-            }
-            else
             {
                 var listaPedidos = RNPedidos.ListarPedidos();
                 List<PedidoCompleto> pedidos = ArmarPedidoCompleto(listaPedidos);

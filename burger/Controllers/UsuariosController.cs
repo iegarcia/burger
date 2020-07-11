@@ -10,16 +10,12 @@ namespace burger.Controllers
         {
             var usuario = SessionHelper.UsuarioLogueado;
             var users = RNUser.ListarUsuarios();
-            ActionResult validar;
+            ActionResult validar = Redirect("/Home/Index");
             if (usuario == null)
             {
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
-            {
-                validar = Redirect("/Home/Index");
-            }
-            else
             {
                 UserModel modelo = new UserModel
                 {

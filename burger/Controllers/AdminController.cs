@@ -33,9 +33,8 @@ namespace burger.Controllers
         }
         public ActionResult Edit(User user)
         {
-            ActionResult result;
+            ActionResult result = Redirect("/Home/Index"); ;
             var usuario = SessionHelper.UsuarioLogueado;
-            result = Redirect("/Home/Index");
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
                 RNUser.Editar(user);

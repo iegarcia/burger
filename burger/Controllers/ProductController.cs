@@ -11,16 +11,12 @@ namespace burger.Controllers
         {
             var user = SessionHelper.UsuarioLogueado;
             var prod = RNProduct.ListarProductos();
-            ActionResult validar;
+            ActionResult validar = Redirect("/Home/Index");
             if (user == null)
             {
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(user))
-            {
-                validar = Redirect("/Home/Index");
-            }
-            else
             {
                 ProductosModel modelo = new ProductosModel
                 {
