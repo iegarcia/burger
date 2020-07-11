@@ -477,7 +477,8 @@
     <Content Include="Views\PedidoStatus\PedidoStatus.cshtml" />
     <Content Include="Views\Product\Productos.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
-    <Content Include="Views\Admin\EditProd.cshtml" />
+    <Content Include="Views\Product\EditProd.cshtml" />
+    <Content Include="Views\Product\CrearProducto.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

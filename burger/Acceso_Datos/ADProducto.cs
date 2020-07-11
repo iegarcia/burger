@@ -60,5 +60,17 @@ namespace burger.Acceso_Datos
 
             return products;
         }
+
+        public static bool Agregar(Producto prod)
+        {
+            int dbImpact = 0;
+            using (Context context = new Context())
+            {
+                context.Productos.Add(prod);
+                dbImpact = context.SaveChanges();
+            }
+
+            return dbImpact > 0;
+        }
     }
 }

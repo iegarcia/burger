@@ -641,3 +641,4 @@ C:\Users\Maca\Desktop\burger\burger\obj\Debug\burger.csproj.CoreCompileInputs.ca
 C:\Users\Maca\Desktop\burger\burger\obj\Debug\burger.csproj.CopyComplete
 C:\Users\Maca\Desktop\burger\burger\obj\Debug\burger.dll
 C:\Users\Maca\Desktop\burger\burger\obj\Debug\burger.pdb
+C:\Users\Maca\Desktop\burger\burger\obj\Debug\burger.csprojAssemblyReference.cache

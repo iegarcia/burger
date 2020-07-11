@@ -26,5 +26,11 @@ namespace burger.Reglas
         {
             return ADProducto.Eliminar(id);
         }
+
+        public static bool Agregar(Producto prod)
+        {
+           return ADProducto.Agregar(prod);
+        }
+
     }
 }

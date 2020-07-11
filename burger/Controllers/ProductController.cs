@@ -31,7 +31,7 @@ namespace burger.Controllers
         public ActionResult Delete(int id)
         {
             RNProduct.Eliminar(id);
-            return Redirect("/Productos/Index");
+            return Redirect("/Product/Index");
         }
 
         public ActionResult Edit(Producto prod)
@@ -42,7 +42,7 @@ namespace burger.Controllers
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
                 RNProduct.Editar(prod);
-                result = Redirect("/Productos/Index");
+                result = Redirect("/Product/Index");
             }
             return result;
         }
@@ -55,10 +55,40 @@ namespace burger.Controllers
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
                 Producto prod = RNProduct.BuscarProducto(id);
-                res = View("~/Views/Admin/EditProd", prod);
+                res = View("EditProd", prod);
             }
             return res;
         }
+
+        public ActionResult Add(Producto prod)
+        {
+            var Existe = RNProduct.BuscarProducto(prod.Id);
+            ActionResult response = View("CrearProducto");
+
+            if (Existe != null)
+            {
+                RNProduct.Agregar(prod);
+                response = View("/Product/Index");
+
+            }
+            return response;
+        }
+
+        public ActionResult CrearProd()
+        {
+            ActionResult res;
+            var usuario = SessionHelper.UsuarioLogueado;
+            res = Redirect("/Home/Index");
+            if (SessionHelper.ComprobarPersmisos(usuario))
+            {
+                  res = View("CrearProducto");
+            }
+            return res;
+        }
+
+
+
+
 
     }
 }
