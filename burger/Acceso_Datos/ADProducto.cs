@@ -39,11 +39,19 @@ namespace burger.Acceso_Datos
         public static bool BuscarProducto(string nombre)
         {
             Producto prod;
+            bool result = false;
             using (Context context = new Context())
             {
-                prod = context.Productos.Find(nombre);
+                prod = context.Productos.Where(
+                    producto => producto.Nombre == nombre
+                    ).FirstOrDefault();
+                //prod = context.Productos.Find(nombre);
             }
-            return prod != null;
+            if(prod != null)
+            {
+                result = true;
+            }
+            return result;
         }
 
         public static bool Eliminar(int id)

@@ -64,7 +64,7 @@ namespace burger.Controllers
         {
             var existe = RNProduct.BuscarProductoPorNombre(prod.Nombre);
             ActionResult response = View("CrearProducto");
-            if (existe)
+            if (!existe)
             {
                 RNProduct.Agregar(prod);
                 response = Redirect("/Product/Index");
