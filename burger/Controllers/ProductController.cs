@@ -1,6 +1,8 @@
 ﻿using burger.Entidades;
 using burger.Models;
 using burger.Reglas;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace burger.Controllers
@@ -63,9 +65,13 @@ namespace burger.Controllers
         public ActionResult Add(Producto prod)
         {
             var existe = RNProduct.BuscarProductoPorNombre(prod.Nombre);
+           
             ActionResult response = View("CrearProducto");
             if (!existe)
             {
+                HttpPostedFileBase archivo = Request.Files["Imagen"];
+                GuardarImagen(archivo);
+                prod.Imagen = archivo.FileName;
                 RNProduct.Agregar(prod);
                 response = Redirect("/Product/Index");
             }
@@ -83,7 +89,15 @@ namespace burger.Controllers
             return res;
         }
 
-
+        private void GuardarImagen(HttpPostedFileBase archivo)
+        {
+            string fileName = archivo.FileName;
+            string filePath = Server.MapPath("~/Content/images/");
+            if (Directory.Exists(filePath)) {
+                string root = filePath + fileName;
+                archivo.SaveAs(root);
+            }
+        }
 
 
 
