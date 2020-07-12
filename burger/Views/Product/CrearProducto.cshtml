@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "CrearProducto";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>Agregar Producto</h2>
+
+<div class="row">
+    <form class="register-form" action="/Product/Add/" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Nombre</label>
+                <input type="text" name="Nombre" class="form-control" />
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Precio</label>
+                <input type="text" name="Precio" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <label>Descripcion</label>
+                <textarea type="text" name="Descripcion" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-3 form-group">
+                <label>Imagen</label>
+                <input type="file" name="Imagen" />
+            </div>
+        </div>
+        <br />
+        <div class="col-md-6">
+            <button type="submit" name="button" class="btn btn-success float-left">Agregar</button>
+        </div>
+    </form>
+
+</div>
+<a href="/Product/Index" class="btn btn-info">Atras</a>

@@ -1,5 +1,6 @@
 using burger.BurgerDatos;
 using burger.Entidades;
+using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -88,6 +89,85 @@ namespace burger
                 Descripcion = "El perfecto mix de la cocina vegana combinado con los mejores elementos de la naturaleza!"
             };
 
+
+            Pedido pedido1 = new Pedido
+            {
+                UsuarioId = 1,
+                Calle = "Falsa",
+                Numero = "123",
+                Telefono = "153223213",
+                Total = 280,
+                FechaDePedido = DateTime.Today,
+                EstadoPedido = EstadoPedido.Estado.ENTREGADO
+            };
+
+            Pedido pedido2 = new Pedido
+            {
+                UsuarioId = 1,
+                Calle = "Falsa",
+                Numero = "123",
+                Telefono = "153223213",
+                Total = 200,
+                FechaDePedido = DateTime.Today.AddDays(-20),
+                EstadoPedido = EstadoPedido.Estado.ENTREGADO
+            };
+
+            ProductosPorPedido ppp1 = new ProductosPorPedido
+            { 
+                PedidoId = 1,
+                ProductoId = 1,
+                Cantidad = 3
+            };
+
+            ProductosPorPedido ppp2 = new ProductosPorPedido
+            {
+                PedidoId = 1,
+                ProductoId = 2,
+                Cantidad = 2
+            };
+
+            ProductosPorPedido ppp3 = new ProductosPorPedido
+            {
+                PedidoId = 1,
+                ProductoId = 3,
+                Cantidad = 2
+            };
+
+            ProductosPorPedido ppp4 = new ProductosPorPedido
+            {
+                PedidoId = 1,
+                ProductoId = 4,
+                Cantidad = 1
+            };
+
+            ProductosPorPedido ppp5 = new ProductosPorPedido
+            {
+                PedidoId = 2,
+                ProductoId = 1,
+                Cantidad = 4
+            };
+
+            ProductosPorPedido ppp6 = new ProductosPorPedido
+            {
+                PedidoId = 2,
+                ProductoId = 4,
+                Cantidad = 3
+            };
+
+            ProductosPorPedido ppp7 = new ProductosPorPedido
+            {
+                PedidoId = 2,
+                ProductoId = 2,
+                Cantidad = 1
+            };
+
+            ProductosPorPedido ppp8 = new ProductosPorPedido
+            {
+                PedidoId = 2,
+                ProductoId = 3,
+                Cantidad = 1
+            };
+
             using (Context context = new Context())
             {
 
@@ -106,6 +186,25 @@ namespace burger
                     context.Usuarios.Add(user2);
                     context.Usuarios.Add(user3);
                     context.Usuarios.Add(user4);
+                    context.SaveChanges();
+                }
+
+                if (context.Pedidos.ToList().Count() == 0) {
+                    context.Pedidos.Add(pedido1);
+                    context.Pedidos.Add(pedido2);
+                    context.SaveChanges();
+                }
+
+                if (context.ProductosPorPedido.ToList().Count() == 0)
+                {
+                    context.ProductosPorPedido.Add(ppp1);
+                    context.ProductosPorPedido.Add(ppp2);
+                    context.ProductosPorPedido.Add(ppp3);
+                    context.ProductosPorPedido.Add(ppp4);
+                    context.ProductosPorPedido.Add(ppp5);
+                    context.ProductosPorPedido.Add(ppp6);
+                    context.ProductosPorPedido.Add(ppp7);
+                    context.ProductosPorPedido.Add(ppp8);
                     context.SaveChanges();
                 }
 

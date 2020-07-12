@@ -30,6 +30,11 @@ namespace burger.Reglas
             return ADPedido.Contar();
         }
 
+        public static int ContarPedidosEnFechasEspecificas(DateTime fechaInicio, DateTime fechaFin)
+        {
+            return ADPedido.Contar(fechaInicio, fechaFin);
+        }
+
         public static Pedido Enviar(int id)
         {
             Pedido ped = BuscarPedido(id);

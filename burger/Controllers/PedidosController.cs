@@ -18,6 +18,7 @@ namespace burger.Controllers
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
+
                 var listaPedidos = RNPedidos.ListarPedidos();
                 List<PedidoCompleto> pedidos = ArmarPedidoCompleto(listaPedidos);
                 PedidoAdminModel pam = new PedidoAdminModel
@@ -25,8 +26,10 @@ namespace burger.Controllers
                     Pedidos = pedidos
                 };
                 validar = View("Pedidos", pam);
+
             }
             return validar;
+
         }
 
         public ActionResult EnviarPedido(int id)
@@ -34,7 +37,6 @@ namespace burger.Controllers
             RNPedidos.Enviar(id);
             return Redirect("/Pedidos/Index");
         }
-
 
         public ActionResult ConfirmarEntrega(int id)
         {

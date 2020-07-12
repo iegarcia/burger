@@ -41,6 +41,16 @@ namespace burger.Acceso_Datos
             return cant;
         }
 
+        public static int Contar(DateTime fechaInicio, DateTime fechaFin)
+        {
+            int cant;
+            using (Context context = new Context())
+            {
+                cant = context.Pedidos.Where(p => p.FechaDePedido >= fechaInicio && p.FechaDePedido <= fechaFin).Count();
+            }
+            return cant;
+        }
+
         public static Pedido Send(Pedido ped)
         {
             Pedido pedido;

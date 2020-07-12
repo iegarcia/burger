@@ -9,23 +9,27 @@ namespace burger.Controllers
         public ActionResult Index()
         {
             var usuario = SessionHelper.UsuarioLogueado;
+            AdminModel modelo = new AdminModel();
             var users = RNUser.ListarUsuarios();
-            ActionResult validar = Redirect("/Home/Index");
+            ActionResult validar=Redirect("/Home/Index"); 
             if (usuario == null)
             {
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
-                UserModel modelo = new UserModel
+            
+                UserModel usermodelo = new UserModel
                 {
                     ListaUsuarios = users,
                     UsuarioLogueado = usuario.Usuario
 
                 };
-                validar = View("Usuarios", modelo);
+                validar = View("Usuarios", usermodelo);
+                
             }
             return validar;
+
         }
     }
 }

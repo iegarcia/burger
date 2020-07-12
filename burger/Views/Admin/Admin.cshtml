@@ -14,6 +14,35 @@
     </p>
 </div>
 <hr />
+<div>
+    <h4>Estadisticas de la última semana: </h4>
+    <h5>Elija un rango de fecha</h5>
+    <form action="Admin/ProcesarFecha" method="post">
+        <label>Fecha Inicio</label>
+        <input type="date" name="inicio" />
+        
+        <label>Fecha Fin</label>
+        <input type="date" name="fin" />
+        <br />
+        <input type="submit" name="button" />
+    </form>
+    <div>
+        <strong>Cantidad de pedidos realizados: @Model.PedidosRealizados</strong>
+    </div>
+    @foreach (var estadistica in Model.ProductosMasVendidos)
+    {
+        <span>
+            @estadistica.producto.Nombre
+        </span>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: @estadistica.estadistica%;" aria-valuenow="@estadistica.estadistica" aria-valuemin="0" aria-valuemax="100">
+                @estadistica.estadistica%
+            </div>
+        </div>
+    }
+
+</div>
+<hr />
 <div class="row">
     <div class="col-md-4">
         <div class="card" style="width: 18rem;">
@@ -21,7 +50,7 @@
             <div class="card-body">
                 <h5 class="card-title">Usuarios</h5>
                 <p class="card-text">Autorización, permisos, baja, etc.</p>
-                <a href="Usuarios/Index" class="btn btn-primary">Ingresar</a>
+                <a href="/Usuarios/Index" class="btn btn-primary">Ingresar</a>
             </div>
         </div>
     </div>
@@ -41,7 +70,7 @@
             <div class="card-body">
                 <h5 class="card-title">Productos</h5>
                 <p class="card-text">En esta seccion se veran los productos disponibles</p>
-                <a href="Product/Index" class="btn btn-primary">Ingresar</a>
+                <a href="/Product/Index" class="btn btn-primary">Ingresar</a>
             </div>
         </div>
     </div>
