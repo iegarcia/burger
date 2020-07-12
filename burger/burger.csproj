@@ -274,6 +274,7 @@
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\PedidoCompleto.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\ProductoEstadistica.cs" />
     <Compile Include="Entidades\ProductoPedido.cs" />
     <Compile Include="Entidades\ProductosPorPedido.cs" />
     <Compile Include="Models\PedidoAdminModel.cs" />

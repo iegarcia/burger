@@ -28,8 +28,26 @@
             <td>@producto.Precio</td>
             <td>
                 <a href="/Product/Detalle/@producto.Id"><i class="fas fa-pen"></i></a>&nbsp;
-                <a class="text-danger" href="/Product/Delete/@producto.Id"><i class="fas fa-minus-circle"></i></a>
-
+                <a class="text-danger" data-toggle="modal" data-target="#prod-@producto.Id"><i class="fas fa-minus-circle"></i></a>
+                <div class="modal fade" id="prod-@producto.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Esta seguro que desea eliminar esto?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <a href="/Admin/Delete/@producto.Id" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
 

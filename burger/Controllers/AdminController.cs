@@ -11,7 +11,7 @@ namespace burger.Controllers
         // Default fecha de hoy
         public DateTime fechaFin = DateTime.Today;
         // Default fecha de hace una semana
-        public DateTime fechaInicio = DateTime.Today.AddDays(-(int) DateTime.Today.DayOfWeek);
+        public DateTime fechaInicio = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
 
         // GET: Admin
         public ActionResult Index()
@@ -24,13 +24,7 @@ namespace burger.Controllers
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
-
-                AdminModel modelo = new AdminModel() {
-                    UsuarioLogueado = usuario.Usuario,
-                    pedidosRealizados = RNPedidos.ContarPedidosEnFechasEspecificas(fechaInicio, fechaFin),
-                    productosMasVendidos = RNProduct.ProductosMasVendidos(fechaInicio, fechaFin)
-            };
-
+                var modelo = Procesar();
                 hayUsuario = View("Admin", modelo);
             }
 
@@ -66,6 +60,26 @@ namespace burger.Controllers
         {
             RNUser.Eliminar(id);
             return Redirect("/Usuarios/Index");
+        }
+
+        public ActionResult ProcesarFecha(DateTime inicio, DateTime fin)
+        {
+            fechaInicio = inicio;
+            fechaFin = fin;
+            var datos = Procesar();
+            return View("Admin", datos);
+        }
+
+        public AdminModel Procesar()
+        {
+            var user = SessionHelper.UsuarioLogueado;
+            AdminModel modelo = new AdminModel()
+            {
+                UsuarioLogueado = user.Usuario,
+                PedidosRealizados = RNPedidos.ContarPedidosEnFechasEspecificas(fechaInicio, fechaFin),
+                ProductosMasVendidos = RNProduct.ProductosMasVendidos(fechaInicio, fechaFin)
+            };
+            return modelo;
         }
     }
 }
