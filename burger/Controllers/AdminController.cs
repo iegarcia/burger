@@ -27,7 +27,7 @@ namespace burger.Controllers
 
                 AdminModel modelo = new AdminModel() {
                     UsuarioLogueado = usuario.Usuario,
-                    pedidosUltimaSemana = RNPedidos.ContarPedidos(),
+                    pedidosRealizados = RNPedidos.ContarPedidosEnFechasEspecificas(fechaInicio, fechaFin),
                     productosMasVendidos = RNProduct.ProductosMasVendidos(fechaInicio, fechaFin)
             };
 

@@ -108,7 +108,7 @@ namespace burger
                 Numero = "123",
                 Telefono = "153223213",
                 Total = 200,
-                FechaDePedido = DateTime.Today.AddDays(-((int)DateTime.Today.DayOfWeek * 2)),
+                FechaDePedido = DateTime.Today.AddDays(-20),
                 EstadoPedido = EstadoPedido.Estado.ENTREGADO
             };
 

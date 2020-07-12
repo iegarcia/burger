@@ -45,6 +45,7 @@ namespace burger.Controllers
             }
             else
             {
+                //TODO revisar si esta bueno hardcodear el id
                 PedidoModel pedido = new PedidoModel
                 {
                     PedidoId = RNPedidos.ContarPedidos(),

@@ -111,7 +111,7 @@ namespace burger.Acceso_Datos
                 // Contamos la cantidad de productos
                 foreach (ProductosPorPedido productoPorPedido in productosFiltrados)
                 {
-                    int posicionVector = productoPorPedido.Id - 1;
+                    int posicionVector = productoPorPedido.ProductoId - 1;
                     productos[posicionVector] += productoPorPedido.Cantidad;
                 }
             }

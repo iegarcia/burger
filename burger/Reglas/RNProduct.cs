@@ -1,7 +1,9 @@
 ﻿using burger.Acceso_Datos;
 using burger.Entidades;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 
 namespace burger.Reglas
 {
@@ -37,10 +39,38 @@ namespace burger.Reglas
             return ADProducto.BuscarProducto(nombre);
         }
 
-        // Devuelve la cant de productos vendidos ordenados por id
-        public static int[] ProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        // Devuelve las estadisticas productos vendidos ordenados por id
+        public static ProductoEstadistica[] ProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
         {
-            return ADProducto.BuscarProductosMasVendidos(fechaInicio,fechaFin);
+            int[] cantVendida = ADProducto.BuscarProductosMasVendidos(fechaInicio, fechaFin);
+            return RNProduct.generarEstadisticas(cantVendida);
+
+        }
+
+        // Genera un vector de porcentaje a partir de un vector de cantidades
+        private static ProductoEstadistica[] generarEstadisticas(int[] cantidadVendida) {
+            int totalVendido = 0;
+            cantidadVendida.ForEach(cant => totalVendido += cant);
+            
+            ProductoEstadistica[] estadisticas = new ProductoEstadistica[cantidadVendida.Length];
+
+            int idx = 0;
+            try {
+                cantidadVendida.ForEach(cant => {
+                    Double estadistica = (cant * 100) / totalVendido;
+                    Producto producto = ADProducto.Buscar(idx + 1);
+                    estadisticas[idx] = new ProductoEstadistica() { 
+                        producto = producto,
+                        estadistica = estadistica
+                    };
+                    idx++;
+                });
+            } catch (Exception e) { 
+                // No se pudo ejecutar
+            }
+            
+
+            return estadisticas;
         }
     }
 }
