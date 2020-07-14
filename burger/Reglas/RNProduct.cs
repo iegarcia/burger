@@ -42,25 +42,26 @@ namespace burger.Reglas
         // Devuelve las estadisticas productos vendidos ordenados por id
         public static ProductoEstadistica[] ProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
         {
-            int[] cantVendida = ADProducto.BuscarProductosMasVendidos(fechaInicio, fechaFin);
+            ProductoCantidad[] cantVendida = ADProducto.BuscarProductosMasVendidos(fechaInicio, fechaFin);
             return RNProduct.generarEstadisticas(cantVendida);
 
         }
 
         // Genera un vector de porcentaje a partir de un vector de cantidades
-        private static ProductoEstadistica[] generarEstadisticas(int[] cantidadVendida) {
+        private static ProductoEstadistica[] generarEstadisticas(ProductoCantidad[] cantidadVendida) {
             int totalVendido = 0;
-            cantidadVendida.ForEach(cant => totalVendido += cant);
+            cantidadVendida.ForEach(pc => totalVendido += pc.Cantidad);
             
             ProductoEstadistica[] estadisticas = new ProductoEstadistica[cantidadVendida.Length];
 
             int idx = 0;
             try {
-                cantidadVendida.ForEach(cant => {
-                    Double estadistica = (cant * 100) / totalVendido;
-                    Producto producto = ADProducto.Buscar(idx + 1);
+                cantidadVendida.ForEach(pc => {
+                    // cant[1] guarda la cantidad de ventas de un producto
+                    // cant[0] guarda el ID del producto
+                    Double estadistica = (pc.Cantidad * 100) / totalVendido;
                     estadisticas[idx] = new ProductoEstadistica() { 
-                        producto = producto,
+                        producto = pc.Producto,
                         estadistica = estadistica
                     };
                     idx++;

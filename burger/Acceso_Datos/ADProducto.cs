@@ -1,5 +1,6 @@
 ﻿using burger.BurgerDatos;
 using burger.Entidades;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -92,13 +93,15 @@ namespace burger.Acceso_Datos
             return dbImpact > 0;
         }
 
-        public static int[] BuscarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin) {
+        public static ProductoCantidad[] BuscarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin) {
 
-            int[] productos;
+            // En la primer posicion se guarda el vector con los datos [PedidoId, cant]
+            ProductoCantidad[] productos;
 
             using (Context context = new Context())
             {
-                productos = new int[context.Productos.Count()];
+
+                productos = new ProductoCantidad[context.Productos.Count()];
 
                 // Obtenemos los ids de pedidos solicitados (que esten entre las fechas que nos mandaron)
                 List<int> idsDePedido = context.Pedidos
@@ -109,10 +112,25 @@ namespace burger.Acceso_Datos
                 List<ProductosPorPedido> productosFiltrados = context.ProductosPorPedido.Where(p => idsDePedido.Contains(p.PedidoId)).ToList();
 
                 // Contamos la cantidad de productos
-                foreach (ProductosPorPedido productoPorPedido in productosFiltrados)
-                {
-                    int posicionVector = productoPorPedido.ProductoId - 1;
-                    productos[posicionVector] += productoPorPedido.Cantidad;
+
+                int idx = 0;
+                foreach (Producto producto in context.Productos.ToList()) {
+
+                    List<ProductosPorPedido> pedidosConProductoSolicitado = productosFiltrados.Where(p => p.ProductoId == producto.Id).ToList();
+
+                    int cantidad = 0;
+                    foreach (ProductosPorPedido p in pedidosConProductoSolicitado) {
+                        cantidad += p.Cantidad;
+                    }
+
+                    productos[idx] = new ProductoCantidad()
+                    {
+                        Producto = producto,
+                        Cantidad = cantidad
+                    };
+                    
+                    idx++;
+
                 }
             }
 
