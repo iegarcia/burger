@@ -43,6 +43,9 @@ namespace burger.Controllers
             result = Redirect("/Home/Index");
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
+                HttpPostedFileBase archivo = Request.Files["Imagen"];
+                GuardarImagen(archivo);
+                prod.Imagen = archivo.FileName;
                 RNProduct.Editar(prod);
                 result = Redirect("/Product/Index");
             }

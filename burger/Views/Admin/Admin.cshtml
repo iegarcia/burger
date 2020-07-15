@@ -20,7 +20,7 @@
     <form action="/Admin/ProcesarFecha" method="post">
         <label>Fecha Inicio</label>
         <input type="date" name="inicio" />
-        
+
         <label>Fecha Fin</label>
         <input type="date" name="fin" />
         <br />
@@ -35,7 +35,7 @@
             @estadistica.producto.Nombre
         </span>
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: @estadistica.estadistica%;" aria-valuenow="@estadistica.estadistica" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" role="progressbar" style="width: @estadistica.estadistica%;" aria-valuenow="@estadistica.estadistica%" aria-valuemin="0" aria-valuemax="100">
                 @estadistica.estadistica%
             </div>
         </div>
