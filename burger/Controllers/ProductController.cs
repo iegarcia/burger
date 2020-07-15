@@ -44,7 +44,10 @@ namespace burger.Controllers
             if (SessionHelper.ComprobarPersmisos(usuario))
             {
                 HttpPostedFileBase archivo = Request.Files["Imagen"];
-                GuardarImagen(archivo);
+                if (archivo != null)
+                {
+                    GuardarImagen(archivo);
+                }
                 prod.Imagen = archivo.FileName;
                 RNProduct.Editar(prod);
                 result = Redirect("/Product/Index");
@@ -68,7 +71,7 @@ namespace burger.Controllers
         public ActionResult Add(Producto prod)
         {
             var existe = RNProduct.BuscarProductoPorNombre(prod.Nombre);
-           
+
             ActionResult response = View("CrearProducto");
             if (!existe)
             {
@@ -95,7 +98,8 @@ namespace burger.Controllers
         private void GuardarImagen(HttpPostedFileBase archivo)
         {
             string filePath = Server.MapPath("~/Content/images/");
-            if (Directory.Exists(filePath)) {
+            if (Directory.Exists(filePath))
+            {
                 archivo.SaveAs(filePath + archivo.FileName);
             }
         }

@@ -15,14 +15,14 @@
 </div>
 <hr />
 <div>
-    <h4>Estadisticas de la última semana: </h4>
+    <h4>Estadisticas</h4>
     <h5>Elija un rango de fecha</h5>
     <form action="/Admin/ProcesarFecha" method="post">
         <label>Fecha Inicio</label>
-        <input type="date" name="inicio" />
+        <input type="date" name="inicio" required/>
 
         <label>Fecha Fin</label>
-        <input type="date" name="fin" />
+        <input type="date" name="fin" required />
         <br />
         <input class="btn btn-secondary" type="submit" name="button" />
     </form>
