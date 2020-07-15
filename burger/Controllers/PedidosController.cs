@@ -66,12 +66,20 @@ namespace burger.Controllers
             foreach (var item in productosPors)
             {
                 Producto p = RNProduct.BuscarProducto(item.ProductoId);
-                response.Add(new ProductoPedido
+                if (p == null)
                 {
-                    Producto = p,
-                    Cantidad = item.Cantidad,
-                    Total = p.Precio * item.Cantidad
-                });
+                    item.ProductoId++;
+                    RNProduct.BuscarProducto(item.ProductoId);
+                }
+                else
+                {
+                    response.Add(new ProductoPedido
+                    {
+                        Producto = p,
+                        Cantidad = item.Cantidad,
+                        Total = p.Precio * item.Cantidad
+                    });
+                }
             }
             return response;
         }
