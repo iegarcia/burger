@@ -47,8 +47,8 @@ namespace burger.Controllers
                 if (archivo != null)
                 {
                     GuardarImagen(archivo);
+                    prod.Imagen = archivo.FileName;
                 }
-                prod.Imagen = archivo.FileName;
                 RNProduct.Editar(prod);
                 result = Redirect("/Product/Index");
             }
