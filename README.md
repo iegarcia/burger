@@ -13,7 +13,7 @@ El mismo cuenta con:
  - Carrito de compras
  - Validaciones para evitar a los curiosos no registrados 😁
  
- # Compilar Proyecto
+ ## Compilar Proyecto
  Para que el proyecto inicie correctamente primero debes realizar los siguientes pasos
  1.  Crear la carpeta **App_Data** adentro de la carpeta del proyecto.
  2. Dentro de la carpeta App_Data se deberá crear un archivo *.mdf comúnmente nombrado **burger.BurgerDatos.Context**. 
@@ -23,10 +23,12 @@ El mismo cuenta con:
  ## Credenciales 
  **Administrador**
  *User:* admin@test.com
+ 
  *Pass:* 1234
 
 **Usuario Normal**
 *User:* usuario@test.com
+
 *Pass:* 1234
 
 > Registrando un usuario nuevo este tendrá permisos normales también.
