@@ -16,7 +16,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
+                            <th scope="col">Nro. Producto</th>
                             <th scope="col">Producto</th>
                             <th scope="col" class="text-center">Cantidad</th>
                             <th scope="col" class="text-center">Precio por Unidad</th>
@@ -31,10 +31,16 @@
                             <tr>
                                 <td>@producto.Producto.Id</td>
                                 <td>@producto.Producto.Nombre</td>
-                                <td class="text-center">@producto.Cantidad</td>
+                                <td class="text-center">
+                                    @*Armar popup formulario para restar cantidades*@
+                                    @producto.Cantidad
+                                    <a href="/Carrito/Restar/@producto.Producto.Id" class="btn-sm btn-danger"><i class="fas fa-minus"></i></a>
+                                </td>
                                 <td class="text-center">$@producto.Producto.Precio </td>
                                 <td class="text-right">$@producto.Total </td>
-                                <td class="text-right"><a href="/Carrito/Eliminar/@producto.Producto.Id" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </a> </td>
+                                <td class="text-right">
+                                    <a href="/Carrito/Eliminar/@producto.Producto.Id" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
                             </tr>
                         }
 
@@ -51,13 +57,22 @@
             }
         </div>
     </div>
-    <div class="col mb-2">
+</div>
+<a class="btn btn-success" data-toggle="collapse" href="#agregar" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Agregar Productos
+</a>
+<div class="collapse" id="agregar">
+    <form class="register-form" action="/Carrito/Agregar" method="post">
         <div class="row">
-            <div class="col-sm-12  col-md-6">
-                <a href="/Home/Index" class="btn btn-block btn-success">Agregar Productos</a>
+            <div class="col-md-2 form-group">
+                <input type="text" name="id" class="form-control" placeholder="Nro Producto" required>
+            </div>
+            <div class="col-md-2 form-group">
+                <input type="number" name="cantidad" class="form-control" value="0" required>
             </div>
         </div>
-    </div>
+        <button type="submit" class="btn btn-primary float-left">Agregar</button>
+    </form>
 </div>
 <br />
 <hr />

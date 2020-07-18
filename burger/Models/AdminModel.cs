@@ -1,5 +1,4 @@
 ﻿using burger.Entidades;
-using System;
 
 namespace burger.Models
 {

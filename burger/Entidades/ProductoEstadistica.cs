@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace burger.Entidades
+﻿namespace burger.Entidades
 {
     public class ProductoEstadistica
     {

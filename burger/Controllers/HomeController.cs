@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using burger.BurgerDatos;
+﻿using burger.BurgerDatos;
 using burger.Entidades;
 using burger.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace burger.Controllers
 {
@@ -26,13 +24,5 @@ namespace burger.Controllers
             };
             return View("Index", ProductosModel);
         }
-
-        //[HttpPost]
-        //public void AddProduct(int productoId) {
-        //    //Lo tiene que agregar a la sesion
-
-
-        //}
-
     }
 }

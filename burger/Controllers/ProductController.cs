@@ -76,8 +76,11 @@ namespace burger.Controllers
             if (!existe)
             {
                 HttpPostedFileBase archivo = Request.Files["Imagen"];
-                GuardarImagen(archivo);
-                prod.Imagen = archivo.FileName;
+                if (archivo != null)
+                {
+                    GuardarImagen(archivo);
+                    prod.Imagen = archivo.FileName;
+                }
                 RNProduct.Agregar(prod);
                 response = Redirect("/Product/Index");
             }

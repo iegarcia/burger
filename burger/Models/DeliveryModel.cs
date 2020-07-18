@@ -1,10 +1,4 @@
-﻿using burger.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace burger.Models
+﻿namespace burger.Models
 {
     public class DeliveryModel
     {

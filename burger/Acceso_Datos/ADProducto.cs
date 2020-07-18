@@ -1,8 +1,6 @@
 ﻿using burger.BurgerDatos;
 using burger.Entidades;
-using Microsoft.EntityFrameworkCore.Internal;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -49,7 +47,7 @@ namespace burger.Acceso_Datos
                     producto => producto.Nombre == nombre
                     ).FirstOrDefault();
             }
-            if(prod != null)
+            if (prod != null)
             {
                 result = true;
             }
@@ -93,7 +91,8 @@ namespace burger.Acceso_Datos
             return dbImpact > 0;
         }
 
-        public static ProductoCantidad[] BuscarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin) {
+        public static ProductoCantidad[] BuscarProductosMasVendidos(DateTime fechaInicio, DateTime fechaFin)
+        {
 
             // En la primer posicion se guarda el vector con los datos [PedidoId, cant]
             ProductoCantidad[] productos;
@@ -114,12 +113,14 @@ namespace burger.Acceso_Datos
                 // Contamos la cantidad de productos
 
                 int idx = 0;
-                foreach (Producto producto in context.Productos.ToList()) {
+                foreach (Producto producto in context.Productos.ToList())
+                {
 
                     List<ProductosPorPedido> pedidosConProductoSolicitado = productosFiltrados.Where(p => p.ProductoId == producto.Id).ToList();
 
                     int cantidad = 0;
-                    foreach (ProductosPorPedido p in pedidosConProductoSolicitado) {
+                    foreach (ProductosPorPedido p in pedidosConProductoSolicitado)
+                    {
                         cantidad += p.Cantidad;
                     }
 
@@ -128,13 +129,13 @@ namespace burger.Acceso_Datos
                         Producto = producto,
                         Cantidad = cantidad
                     };
-                    
+
                     idx++;
 
                 }
             }
 
             return productos;
-        } 
+        }
     }
 }
