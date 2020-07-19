@@ -51,11 +51,6 @@ body {
     float: right;
     font-size: 20px;
 }
-/* Resumen */
-
-/*.register-block {
-    width: 100%;
-}*/
 
 .imagen {
     width: 521px;
@@ -141,14 +136,23 @@ body {
     }
 
 /* Login */
+.bg-reg {
+    background-image: url("https://pixabay.com/get/51e3d4404f53b108feda8460da293277103ed9e3505575_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .bg-login {
     background-image: url("https://images.unsplash.com/photo-1556910602-38f53e68e15d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1525&q=80");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.user_card {
+.log {
     height: 400px;
+}
+
+.user_card {
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
