@@ -1,3 +1,4 @@
+![logo](https://imgur.com/BtzPaD0.png)
 # Burger
 E-commerce desarrollado con **NET Framework** utilizando  [Visual Studio](https://visualstudio.microsoft.com/es/) según el modelo de trabajo **MVC** y utilizando el motor de Base de datos SQL Server.
 
