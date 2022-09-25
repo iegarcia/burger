@@ -1,10 +1,6 @@
 ﻿using burger.Entidades;
-using burger.Models;
-using burger.Reglas;
-using Microsoft.Ajax.Utilities;
 using System.Collections.Generic;
 using System.Web;
-using System.Web.Mvc;
 
 
 namespace burger.Controllers

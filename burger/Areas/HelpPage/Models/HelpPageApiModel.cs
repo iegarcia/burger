@@ -1,8 +1,8 @@
+using burger.Areas.HelpPage.ModelDescriptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using burger.Areas.HelpPage.ModelDescriptions;
 
 namespace burger.Areas.HelpPage.Models
 {

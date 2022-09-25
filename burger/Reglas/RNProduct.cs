@@ -3,7 +3,6 @@ using burger.Entidades;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 
 namespace burger.Reglas
 {
@@ -48,28 +47,34 @@ namespace burger.Reglas
         }
 
         // Genera un vector de porcentaje a partir de un vector de cantidades
-        private static ProductoEstadistica[] generarEstadisticas(ProductoCantidad[] cantidadVendida) {
+        private static ProductoEstadistica[] generarEstadisticas(ProductoCantidad[] cantidadVendida)
+        {
             int totalVendido = 0;
             cantidadVendida.ForEach(pc => totalVendido += pc.Cantidad);
-            
+
             ProductoEstadistica[] estadisticas = new ProductoEstadistica[cantidadVendida.Length];
 
             int idx = 0;
-            try {
-                cantidadVendida.ForEach(pc => {
+            try
+            {
+                cantidadVendida.ForEach(pc =>
+                {
                     // cant[1] guarda la cantidad de ventas de un producto
                     // cant[0] guarda el ID del producto
                     Double estadistica = (pc.Cantidad * 100) / totalVendido;
-                    estadisticas[idx] = new ProductoEstadistica() { 
+                    estadisticas[idx] = new ProductoEstadistica()
+                    {
                         producto = pc.Producto,
                         estadistica = estadistica
                     };
                     idx++;
                 });
-            } catch (Exception e) { 
+            }
+            catch (Exception e)
+            {
                 // No se pudo ejecutar
             }
-            
+
 
             return estadisticas;
         }

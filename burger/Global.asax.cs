@@ -113,7 +113,7 @@ namespace burger
             };
 
             ProductosPorPedido ppp1 = new ProductosPorPedido
-            { 
+            {
                 PedidoId = 1,
                 ProductoId = 1,
                 Cantidad = 3
@@ -189,7 +189,8 @@ namespace burger
                     context.SaveChanges();
                 }
 
-                if (context.Pedidos.ToList().Count() == 0) {
+                if (context.Pedidos.ToList().Count() == 0)
+                {
                     context.Pedidos.Add(pedido1);
                     context.Pedidos.Add(pedido2);
                     context.SaveChanges();

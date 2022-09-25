@@ -1,5 +1,4 @@
 ﻿using burger.Entidades;
-using burger.Models;
 using burger.Reglas;
 using System.Web.Mvc;
 
@@ -20,7 +19,8 @@ namespace burger.Controllers
             var userAdded = RNUser.Agregar(modelo);
             ActionResult response = View("Register");
 
-            if (userAdded) {
+            if (userAdded)
+            {
                 SessionHelper.UsuarioLogueado = modelo;
                 response = Redirect("/Home");
             }

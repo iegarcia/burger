@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using burger.Entidades;
+﻿using burger.Entidades;
+using System.Data.Entity;
 
 namespace burger.BurgerDatos
 {

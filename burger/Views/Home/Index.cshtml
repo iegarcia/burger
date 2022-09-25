@@ -5,7 +5,9 @@
 }
 
 <div class="home-section">
-    <h1 class="home-title">Bienvenido a la hamburgueseria</h1>
+    <center><img src="~/Content/images/logo.png" alt="logo" /></center>
+    <br />
+    <h1 class="home-title">Bienvenido a Burgermania</h1>
     <hr />
     <h3 class="prod-sell">A continuacion elija un producto</h3>
 </div>
@@ -17,22 +19,36 @@
             <div class="card" style="width: 17rem;">
                 <img src="~/Content/images/@producto.Imagen" class="card-img-top" alt="@producto.Nombre">
                 <div class="card-body">
-                    <h5 class="card-title text-center">@producto.Nombre</h5>
+                    <h5 class="card-title text-center">Nro. @producto.Id</h5>
+                    <h4 class="card-title text-center">@producto.Nombre</h4>
                     <p class="card-text">@producto.Descripcion</p>
-                    <p class="card-text">$@producto.Precio</p>
-                    <a href="/Carrito/Agregar/@producto.Id" class="btn btn-primary">Pedir</a>
+                    <p class="card-text text-center">$@producto.Precio</p>
                 </div>
             </div>
         }
     }
 </div>
+<form class="register-form" action="/Carrito/Agregar" method="post">
+    <div class="row">
+        <div class="col-md-2 form-group">
+            <label for="id">Producto</label>
+            <input type="text" name="id" class="form-control" placeholder="Nro Producto" required>
+        </div>
+        <div class="col-md-2 form-group">
+            <label for="number">Cantidad</label>
+            <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" required>
+        </div>
+    </div>
+    <button type="submit" name="button" class="btn btn-primary float-left">Realizar pedido</button>
+</form>
+<br />
 <hr />
 <br />
 <h4>Seguir estado del envio</h4>
 <p>Introduce aqui tu numero de pedido va comprobar su estado actual</p>
 <form class="register-form" action="/PedidoStatus/SeguirEnvio/id" method="post">
     <div class="row">
-        <div class="col-sm-3 form-group">
+        <div class="col-sm-2 form-group">
             <input type="text" name="id" class="form-control" placeholder="Nro Pedido" required>
         </div>
     </div>

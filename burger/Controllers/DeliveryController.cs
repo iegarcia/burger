@@ -1,5 +1,4 @@
-﻿using burger.Acceso_Datos;
-using burger.BurgerDatos;
+﻿using burger.BurgerDatos;
 using burger.Entidades;
 using burger.Models;
 using burger.Reglas;
@@ -38,8 +37,7 @@ namespace burger.Controllers
         public ActionResult CargarDatos(DeliveryModel datosDeEnvio)
         {
             ActionResult result;
-            Boolean logged = EstaLogueado();
-            if (!logged)
+            if (!EstaLogueado())
             {
                 result = Redirect("/Login/Index");
             }

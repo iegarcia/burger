@@ -1,7 +1,6 @@
 ﻿using burger.Entidades;
 using burger.Models;
 using burger.Reglas;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace burger.Controllers

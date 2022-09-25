@@ -1,8 +1,4 @@
-﻿using burger.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace burger.Entidades
 {
@@ -18,7 +14,7 @@ namespace burger.Entidades
         public double Total { get; set; }
         public DateTime FechaDePedido { get; set; }
         public EstadoPedido.Estado EstadoPedido { get; set; }
-        
-        
+
+
     }
 }

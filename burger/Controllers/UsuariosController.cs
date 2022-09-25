@@ -11,14 +11,14 @@ namespace burger.Controllers
             var usuario = SessionHelper.UsuarioLogueado;
             AdminModel modelo = new AdminModel();
             var users = RNUser.ListarUsuarios();
-            ActionResult validar=Redirect("/Home/Index"); 
+            ActionResult validar = Redirect("/Home/Index");
             if (usuario == null)
             {
                 validar = Redirect("/Login/Index");
             }
             else if (SessionHelper.ComprobarPersmisos(usuario))
             {
-            
+
                 UserModel usermodelo = new UserModel
                 {
                     ListaUsuarios = users,
@@ -26,7 +26,7 @@ namespace burger.Controllers
 
                 };
                 validar = View("Usuarios", usermodelo);
-                
+
             }
             return validar;
 

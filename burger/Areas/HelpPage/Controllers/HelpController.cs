@@ -1,8 +1,8 @@
+using burger.Areas.HelpPage.ModelDescriptions;
+using burger.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using burger.Areas.HelpPage.ModelDescriptions;
-using burger.Areas.HelpPage.Models;
 
 namespace burger.Areas.HelpPage.Controllers
 {
